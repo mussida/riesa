@@ -1,0 +1,65 @@
+<div
+  id="bottles-carousel-section"
+  class="flex flex-col gap-10 justify-center items-center md:px-32 md:py-32 px-14 py-14"
+  [ngStyle]="{
+    'background-color': currentBackground,
+    'background-size': 'cover',
+    'background-position': 'center'
+  }"
+>
+  <div class="text-4xl sm:text-5xl md:text-6xl font-bold">
+    Le nostre bottiglie
+  </div>
+  <div class="w-full">
+    <splide
+      (onMove)="onMove($event)"
+      #rowTextWines
+      [options]="
+      {
+        rewind: true,
+        isNavigation: true,
+        focus: 'center',
+        pagination: false,
+        perPage: 3,
+        perMove: 1,
+        cover: true,
+        arrows: false,
+        width: '100%',
+        height: '20px',
+        maxWidth: '20px',
+      }"
+    >
+      @for (wine of wines; track $index) {
+      <splide-slide>
+        <div [id]="$index" class="w-full object-cover">
+          {{ wine.name }}
+        </div>
+      </splide-slide>
+      }
+    </splide>
+  </div>
+  <div>
+    <splide
+      class="block w-full h-full"
+      [options]="
+          {
+          perPage: 1,
+          pagination: false,
+          cover: true,
+          type: 'scroll',
+          arrows: false,
+          width:'32rem',
+          perMove: 1,
+        }"
+      [syncWith]="rowTextWines"
+    >
+      @for (wine of wines; track $index) {
+      <splide-slide>
+        <div id="1" class="relative">
+          <app-bottles-carousel-card [wine]="wine"></app-bottles-carousel-card>
+        </div>
+      </splide-slide>
+      }
+    </splide>
+  </div>
+</div>

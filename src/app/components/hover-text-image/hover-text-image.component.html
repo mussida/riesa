@@ -1,0 +1,18 @@
+<div class="relative">
+  <ul>
+    <li
+      *ngFor="let item of menuItems"
+      class="relative py-2 border-b cursor-pointer hover:text-red-700"
+      (mouseenter)="showImage(item.image)"
+      (mouseleave)="hideImage()"
+    >
+      {{ item.name }}
+    </li>
+  </ul>
+  <img
+    *ngIf="hoveredImage"
+    [src]="hoveredImage"
+    alt=""
+    class="absolute top-0 ml-14 w-40 h-40 object-cover transform rotate-6 shadow-lg"
+  />
+</div>

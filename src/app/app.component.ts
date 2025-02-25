@@ -6,20 +6,22 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { WhoWeAreComponent } from './components/who-we-are/who-we-are.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { HoverTextImageComponent } from './components/hover-text-image/hover-text-image.component';
 
 @Component({
-    selector: 'app-root',
-    imports: [
-        NavbarComponent,
-        CommonModule,
-        HomeImageComponent,
-        WhoWeAreComponent,
-        BottlesCarouselComponent,
-        MenuComponent,
-        FooterComponent,
-    ],
-    templateUrl: './app.component.html',
-    styleUrl: './app.component.css'
+  selector: 'app-root',
+  imports: [
+    NavbarComponent,
+    CommonModule,
+    HomeImageComponent,
+    WhoWeAreComponent,
+    BottlesCarouselComponent,
+    MenuComponent,
+    FooterComponent,
+    HoverTextImageComponent,
+  ],
+  templateUrl: './app.component.html',
+  styleUrl: './app.component.css',
 })
 export class AppComponent {
   title = 'riesa';

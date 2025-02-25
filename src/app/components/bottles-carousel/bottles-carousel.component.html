@@ -3,24 +3,33 @@
   class="flex flex-col gap-10 justify-center items-center md:px-32 md:py-32 px-4 py-14 text-text bg-[#DCD5BF]"
 >
   <div class="text-4xl sm:text-5xl md:text-6xl font-bold">I nostri vini</div>
-        <splide
-        class="block w-full h-full"
-        [options]="
+  <splide
+    class="block w-full h-full"
+    [options]="
           {
-          pagination: false,
           perPage: 2,
+          pagination: false,
           cover: true,
           type: 'scroll',
           arrows: false,
           perMove: 1,
-        }"
-      >
-        @for (wine of wines; track $index) {
-        <splide-slide>
-            <app-bottles-carousel-card
-              [wine]="wine"
-            ></app-bottles-carousel-card>
-        </splide-slide>
-        }
-      </splide>
-  </div>
+          breakpoints: {
+          '640': {
+            'perPage': 1
+          },
+          '768': {
+            'perPage': 1
+          },
+          '1024': {
+            'perPage': 1
+          },
+        },
+      }"
+  >
+    @for (wine of wines; track $index) {
+    <splide-slide>
+      <app-bottles-carousel-card [wine]="wine"></app-bottles-carousel-card>
+    </splide-slide>
+    }
+  </splide>
+</div>

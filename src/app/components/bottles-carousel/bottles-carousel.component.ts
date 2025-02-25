@@ -12,11 +12,10 @@ export interface Wine {
 }
 
 @Component({
-  selector: 'app-bottles-carousel',
-  standalone: true,
-  imports: [NgxSplideModule, BottlesCarouselCardComponent, CommonModule],
-  templateUrl: './bottles-carousel.component.html',
-  styleUrl: './bottles-carousel.component.css',
+    selector: 'app-bottles-carousel',
+    imports: [NgxSplideModule, BottlesCarouselCardComponent, CommonModule],
+    templateUrl: './bottles-carousel.component.html',
+    styleUrl: './bottles-carousel.component.css'
 })
 export class BottlesCarouselComponent {
   @ViewChild('mainSplide') rowTextWines: NgxSplideComponent | undefined;

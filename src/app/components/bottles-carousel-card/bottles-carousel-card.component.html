@@ -1,7 +1,15 @@
-<div class="w-full h-full flex justify-center items-center">
+<div class="w-full h-full flex flex-col p-3 justify-center items-center cursor-pointer hover:scale-105 transition-transform duration-300">
   <img
     [src]="wine()?.imageUrl"
-    class="object-cover w-[600px] h-[900px]"
+    class="object-cover max-h-[600px]"
     alt=""
   />
+  <div class="flex flex-col  items-center justify-center">
+    <div class="text-lg">Riesa</div>
+    <div class="text-4xl font-lullabies-heavy"
+    [ngStyle]="{
+      'color': wine()?.background,
+    }"
+    >{{ wine()?.name }}</div>
+  </div>
 </div>

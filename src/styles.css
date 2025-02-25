@@ -24,8 +24,23 @@
 }
 
 @theme {
-  --font-cardo: "Cardo", "sans-serif"; 
-  --color-primary: #E5DECB;
-  --color-text: #1A1A1A;
+  --font-cardo: "Cardo", "sans-serif";
+  --font-lullabies-heavy: "lullabies-heavy", "sans-serif";
+  --font-lullabies-heavy-fill: "lullabies-heavy-fill", "sans-serif";
+  --font-lullabies-regular: "lullabies-regular", "sans-serif";
+  --font-lullabies-regular-fill: "lullabies-regular-fill", "sans-serif";
+  --font-lullabies-text: "lullabies-text", "sans-serif";
+  --font-lullabies-text-fill: "lullabies-text-fill", "sans-serif";
+  --color-primary: #e5decb;
+  --color-text: #1a1a1a;
 }
+
+.splide__slide.is-visible.is-active {
+  outline: none !important;
+  border: none !important;
+}
+
+/* .splide__slide div {
+  transition: font-size 0.4s ease; 
+} */
 

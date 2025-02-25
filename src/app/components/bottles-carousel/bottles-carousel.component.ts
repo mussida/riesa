@@ -8,6 +8,7 @@ export interface Wine {
   description: string;
   imageUrl: string;
   background: string;
+  textColor?: string;
 }
 
 @Component({
@@ -26,41 +27,54 @@ export class BottlesCarouselComponent {
       description: 'A wine that is made from the finest grapes in the world.',
       imageUrl: 'assets/images/try.png',
       background: '#613138',
+      textColor: '#fff',
     },
     {
       name: 'Grigolino',
       description: 'A wine that is made from the finest grapes in the world.',
       imageUrl: 'assets/images/try.png',
       background: '#41324F',
+      textColor: '#fff',
     },
     {
       name: 'Brut',
       description: 'A wine that is made from the finest grapes in the world.',
       imageUrl: 'assets/images/try.png',
       background: '#303334',
+      textColor: '#fff',
     },
     {
       name: 'Rosato',
       description: 'A wine that is made from the finest grapes in the world.',
       imageUrl: 'assets/images/try.png',
       background: '#B896A5',
+      textColor: '#fff',
     },
     {
       name: 'Matuné',
       description: 'A wine that is made from the finest grapes in the world.',
       imageUrl: 'assets/images/try.png',
       background: '#2A413B',
+      textColor: '#fff',
     },
     {
       name: 'Sauvignon',
       description: 'A wine that is made from the finest grapes in the world.',
       imageUrl: 'assets/images/try.png',
       background: '#875632',
+      textColor: '#fff',
     },
   ];
+
   currentBackground: string = this.wines[0].background;
+  activeIndex = 0;
 
   onMove(args: any) {
     this.currentBackground = this.wines[args[0]].background;
+    this.activeIndex = args[0];
+  }
+
+  isActive(index: number): boolean {
+    return this.activeIndex === index;
   }
 }

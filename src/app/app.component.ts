@@ -4,6 +4,8 @@ import { BottlesCarouselComponent } from './components/bottles-carousel/bottles-
 import { HomeImageComponent } from './components/home-image/home-image.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { WhoWeAreComponent } from './components/who-we-are/who-we-are.component';
+import { MenuComponent } from './components/menu/menu.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @Component({
   selector: 'app-root',
@@ -14,6 +16,8 @@ import { WhoWeAreComponent } from './components/who-we-are/who-we-are.component'
     HomeImageComponent,
     WhoWeAreComponent,
     BottlesCarouselComponent,
+    MenuComponent,
+    FooterComponent,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',

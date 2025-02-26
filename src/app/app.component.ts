@@ -7,6 +7,7 @@ import { WhoWeAreComponent } from './components/who-we-are/who-we-are.component'
 import { MenuComponent } from './components/menu/menu.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HoverTextImageComponent } from './components/hover-text-image/hover-text-image.component';
+import { AboutUsSectionComponent } from './components/about-us-section/about-us-section.component';
 
 @Component({
   selector: 'app-root',
@@ -18,6 +19,7 @@ import { HoverTextImageComponent } from './components/hover-text-image/hover-tex
     BottlesCarouselComponent,
     MenuComponent,
     FooterComponent,
+    AboutUsSectionComponent,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',

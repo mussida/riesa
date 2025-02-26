@@ -18,7 +18,6 @@ import { HoverTextImageComponent } from './components/hover-text-image/hover-tex
     BottlesCarouselComponent,
     MenuComponent,
     FooterComponent,
-    HoverTextImageComponent,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',

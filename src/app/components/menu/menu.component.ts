@@ -10,4 +10,12 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
 })
 export class MenuComponent {
   isMenuActive = model<boolean>(false);
+  toggleMenu() {
+    this.isMenuActive.set(!this.isMenuActive);
+    if (this.isMenuActive()) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+  }
 }

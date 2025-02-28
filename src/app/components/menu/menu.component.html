@@ -9,7 +9,17 @@
 
   <ul class="text-6xl md:text-7xl space-y-6">
     <li><a href="#" class="transition">HOME</a></li>
-    <li><a href="#" class="transition">BOTTIGLIE</a></li>
+    <li>
+      <a
+        href="#"
+        class="transition"
+        routerLinkActive
+        #rlaArchive="routerLinkActive"
+        (click)="toggleMenu()"
+        [routerLink]="['/wines']"
+        >BOTTIGLIE</a
+      >
+    </li>
     <li><a href="#" class="transition">CHI SIAMO</a></li>
     <li><a href="#" class="transition">CONTATTI</a></li>
   </ul>

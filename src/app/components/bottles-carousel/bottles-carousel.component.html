@@ -1,8 +1,31 @@
 <div
   id="bottles-carousel-section"
-  class="flex flex-col gap-10 justify-center items-center md:px-32 md:py-32 px-4 py-14 text-text bg-[#DCD5BF]"
+  class="flex flex-col gap-4 justify-center items-center md:px-32 md:py-32 px-4 py-14 text-text bg-[#DCD5BF]"
 >
-  <div class="text-4xl sm:text-5xl md:text-6xl font-bold">I nostri vini</div>
+  <div class="text-4xl sm:text-5xl md:text-6xl uppercase">I nostri vini</div>
+  <div class="group relative cursor-pointer text-lg font-medium">
+    <div class="flex items-center justify-center gap-2">
+      <div>Scopri tutti</div>
+      <!-- <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="currentColor"
+        class="size-4"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="m8.25 4.5 7.5 7.5-7.5 7.5"
+        />
+      </svg> -->
+    </div>
+    <!-- Linea animata -->
+    <div
+      class="absolute left-0 bottom-0 h-[2px] w-0 bg-[#800020] transition-all duration-300 group-hover:w-full"
+    ></div>
+  </div>
   <splide
     class="block w-full h-full"
     [options]="

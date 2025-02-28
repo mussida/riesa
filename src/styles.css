@@ -40,6 +40,13 @@
   border: none !important;
 }
 
+.splide__arrow--next.transparent-background {
+  background-color: transparent;
+}
+.splide__arrow--prev.transparent-background {
+  background-color: transparent;
+}
+
 /* .splide__slide div {
   transition: font-size 0.4s ease; 
 } */

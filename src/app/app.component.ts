@@ -9,6 +9,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { HoverTextImageComponent } from './components/hover-text-image/hover-text-image.component';
 import { AboutUsSectionComponent } from './components/about-us-section/about-us-section.component';
 import { DoubleImageLayoutComponent } from './components/double-image-layout/double-image-layout.component';
+import { ImageSectionComponent } from './components/image-section/image-section.component';
 
 @Component({
   selector: 'app-root',
@@ -21,6 +22,7 @@ import { DoubleImageLayoutComponent } from './components/double-image-layout/dou
     MenuComponent,
     FooterComponent,
     AboutUsSectionComponent,
+    ImageSectionComponent,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',

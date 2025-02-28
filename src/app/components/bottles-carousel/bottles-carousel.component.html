@@ -11,7 +11,7 @@
           pagination: false,
           cover: true,
           type: 'scroll',
-          arrows: false,
+          arrows: true,
           perMove: 1,
           breakpoints: {
           '640': {
@@ -24,6 +24,10 @@
             'perPage': 1
           },
         },
+         classes:{
+            prev  : 'splide__arrow--prev transparent-background',
+            next  : 'splide__arrow--next transparent-background',
+          }
       }"
   >
     @for (wine of wines; track $index) {

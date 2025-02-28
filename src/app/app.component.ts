@@ -10,6 +10,7 @@ import { HoverTextImageComponent } from './components/hover-text-image/hover-tex
 import { AboutUsSectionComponent } from './components/about-us-section/about-us-section.component';
 import { DoubleImageLayoutComponent } from './components/double-image-layout/double-image-layout.component';
 import { ImageSectionComponent } from './components/image-section/image-section.component';
+import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -18,6 +19,7 @@ import { ImageSectionComponent } from './components/image-section/image-section.
     CommonModule,
     HomeImageComponent,
     WhoWeAreComponent,
+    RouterOutlet,
     BottlesCarouselComponent,
     MenuComponent,
     FooterComponent,

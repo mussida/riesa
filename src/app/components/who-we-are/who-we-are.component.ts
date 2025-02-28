@@ -19,7 +19,7 @@ export class WhoWeAreComponent {
           observer.disconnect();
         }
       },
-      { threshold: 0.3 }
+      { threshold: 0.2 }
     );
 
     observer.observe(this.whoWeAreSection.nativeElement);

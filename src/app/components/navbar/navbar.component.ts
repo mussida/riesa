@@ -13,5 +13,10 @@ export class NavbarComponent {
 
   toggleMenu() {
     this.isMenuActive.set(!this.isMenuActive());
+     if (this.isMenuActive()) {
+       document.body.style.overflow = 'hidden';
+     } else {
+       document.body.style.overflow = '';
+     }
   }
 }

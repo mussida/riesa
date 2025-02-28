@@ -2,10 +2,10 @@ import { CommonModule } from '@angular/common';
 import { Component, ElementRef, ViewChild } from '@angular/core';
 
 @Component({
-    selector: 'app-who-we-are',
-    imports: [CommonModule],
-    templateUrl: './who-we-are.component.html',
-    styleUrl: './who-we-are.component.css'
+  selector: 'app-who-we-are',
+  imports: [CommonModule],
+  templateUrl: './who-we-are.component.html',
+  styleUrl: './who-we-are.component.css',
 })
 export class WhoWeAreComponent {
   isVisible = false;

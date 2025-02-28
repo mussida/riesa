@@ -8,6 +8,7 @@ import { MenuComponent } from './components/menu/menu.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HoverTextImageComponent } from './components/hover-text-image/hover-text-image.component';
 import { AboutUsSectionComponent } from './components/about-us-section/about-us-section.component';
+import { DoubleImageLayoutComponent } from './components/double-image-layout/double-image-layout.component';
 
 @Component({
   selector: 'app-root',

@@ -3,14 +3,20 @@
   [ngClass]="{ 'opacity-100 translate-y-0': isVisible }"
   #whoWeAre
 >
-  <div class="text-4xl sm:text-5xl md:text-6xl font-bold md:w-2/3">
-    A proposito del nostro vino
+  <div class="flex flex-col gap-2">
+    <div class="text-4xl sm:text-5xl md:text-6xl font-bold md:w-2/3">
+      A proposito del nostro vino
+    </div>
+    <div class="text-2xl md:text-3xl xl:text-4xl max-w-3xl">
+      Riesa è un'azienda vinicola che produce vini di alta qualità. La nostra
+      azienda è situata in una delle regioni vinicole più prestigiose d'Italia.
+      Abbiamo una vasta gamma di vini, tra cui vini rossi, bianchi e rosati. I
+      nostri vini sono prodotti con uve di alta qualità e seguono un processo di
+      produzione tradizionale.
+    </div>
   </div>
-  <div class="text-2xl md:text-3xl xl:text-4xl max-w-3xl">
-    Riesa è un'azienda vinicola che produce vini di alta qualità. La nostra
-    azienda è situata in una delle regioni vinicole più prestigiose d'Italia.
-    Abbiamo una vasta gamma di vini, tra cui vini rossi, bianchi e rosati. I
-    nostri vini sono prodotti con uve di alta qualità e seguono un processo di
-    produzione tradizionale.
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:w-1/2">
+    <img class="rounded" src="assets/images/e.avif" alt="">
+    <img class="rounded" src="assets/images/tree.avif" alt="">
   </div>
 </div>

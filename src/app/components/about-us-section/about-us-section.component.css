@@ -1,0 +1,17 @@
+/* .animate-text {
+  transform: translateX(-100%);
+  transition: transform 1s ease-out;
+}
+
+.animate-text.active {
+  transform: translateX(0);
+}
+
+.animate-image {
+  transform: translateX(100%);
+  transition: transform 1s ease-out;
+}
+
+.animate-image.active {
+  transform: translateX(0);
+} */

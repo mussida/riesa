@@ -10,7 +10,7 @@ import { HoverTextImageComponent } from './components/hover-text-image/hover-tex
 import { AboutUsSectionComponent } from './components/about-us-section/about-us-section.component';
 import { DoubleImageLayoutComponent } from './components/double-image-layout/double-image-layout.component';
 import { ImageSectionComponent } from './components/image-section/image-section.component';
-import { RouterOutlet } from '@angular/router';
+import { RouterLinkActive, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -25,6 +25,7 @@ import { RouterOutlet } from '@angular/router';
     FooterComponent,
     AboutUsSectionComponent,
     ImageSectionComponent,
+    RouterLinkActive,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',

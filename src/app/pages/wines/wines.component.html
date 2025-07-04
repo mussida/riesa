@@ -12,7 +12,7 @@
     >
       @for (wine of wines; track $index) {
       <a
-        href="#"
+        [routerLink]="['/wines', wine.id]"
         class="group rounded-xl p-3 hover:scale-105 transition-transform duration-300"
         [ngStyle]="{ 'background-color': wine.background }"
       >
@@ -22,7 +22,8 @@
           class="aspect-square w-full rounded-lg object-cover group-hover:opacity-75 xl:aspect-[7/8]"
         />
         <div class="w-full flex justify-center items-center">
-          <h3 class="text-text text-4xl font-lullabies-heavy">
+          <h3 class="text-4xl font-lullabies-heavy"
+          [ngStyle]="{ 'color': wine.textColor }">
             {{ wine.name }}
           </h3>
         </div>

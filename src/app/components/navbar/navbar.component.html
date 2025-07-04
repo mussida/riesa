@@ -1,5 +1,8 @@
 <nav
   class="w-full fixed top-0 flex justify-between items-center z-20 text-2xl p-3 bg-primary"
+  [ngClass]="{
+    'md:bg-transparent': isWineDetailRoute,
+  }"
 >
   <a href=""><img class="w-56" src="assets/images/logo1.svg" alt="" /></a>
   <div>

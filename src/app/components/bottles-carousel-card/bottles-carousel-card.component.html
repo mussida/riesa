@@ -1,4 +1,4 @@
-<a routerLink="/wine/{{ wine()?.id }}" class="w-full h-full">
+<a routerLink="/wines/{{ wine()?.id }}" class="w-full h-full">
   <div class="w-full h-full flex flex-col p-3 justify-center items-center cursor-pointer hover:scale-105 transition-transform duration-300">
     <img
       [src]="wine()?.imageUrl"
@@ -6,7 +6,7 @@
       alt=""
     />
     <div class="flex flex-col items-center justify-center">
-      <div class="text-lg">Riesas</div>
+      <div class="text-lg">Riesa</div>
       <div class="text-4xl font-lullabies-heavy"
       [ngStyle]="{
         'color': wine()?.background,

@@ -20,7 +20,6 @@ export interface Wine {
     BottlesCarouselCardComponent,
     CommonModule,
     RouterLink,
-    RouterLinkActive,
   ],
   templateUrl: './bottles-carousel.component.html',
   styleUrl: './bottles-carousel.component.css',

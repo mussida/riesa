@@ -1,27 +1,62 @@
-<div class="flex flex-col md:flex-row h-screen">
+<div class="flex flex-col md:flex-row h-screen" *ngIf="wine">
   <div
-    class="md:w-1/2 md:sticky top-0 h-full bg-[#692D46] mt-30 md:mt-0 md:p-30"
+    class="md:w-1/2 md:sticky top-0 h-full min-h-[500px] mt-30 md:mt-0 md:p-30"
+    [style.background-color]="wine.background"
   >
     <img
-      src="assets/images/try.png"
-      alt="Bottiglia di vino"
+      [src]="wine.imageUrl"
+      [alt]="'Bottiglia di ' + wine.name"
       class="w-full h-full object-cover"
     />
   </div>
-  <div class="md:w-1/2 md:overflow-y-auto p-8 mt-20">
-    <div class="flex justify-between w-full">
+  <div class="md:w-1/2 md:overflow-y-auto p-8 md:mt-20 mt-4">
+    <div class="flex justify-between w-full text-sm md:text-base">
       <div>Tenuta Riesa</div>
-      <div>2012</div>
-      <div>Cantina samp</div>
+      <div>{{ wine.alcohol }}</div>
+      <div>{{ wine.denomination }}</div>
     </div>
     <h1 class="mt-4 text-pretty text-4xl uppercase tracking-tight sm:text-5xl">
-      Nebbiolo
+      {{ wine.name }}
     </h1>
-    <div class="mt-4 text-lg">
-      Un vino elegante e complesso, il nostro Nebbiolo 2012 nasce dalle colline
-      esposte a sud della Tenuta Riesa. Fermentato in botti di rovere francese e
-      affinato per 24 mesi, questo vino rappresenta il perfetto equilibrio tra
-      struttura e raffinatezza.
+    <div class="mt-6 text-lg leading-relaxed">
+      {{ wine.description }}
     </div>
+    
+    <!-- Informazioni tecniche aggiuntive -->
+    <div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div class="bg-[#cac1a5] p-4 rounded-lg">
+        <h3 class="font-semibold text-lg mb-2">Caratteristiche</h3>
+        <div class="space-y-2">
+          <div><strong>Vitigno:</strong> {{ wine.grape }}</div>
+          <div><strong>Gradazione:</strong> {{ wine.alcohol }}</div>
+          <div><strong>Temperatura di servizio:</strong> {{ wine.servingTemperature }}</div>
+          <div><strong>Potenzialità di invecchiamento:</strong> {{ wine.agingPotential }}</div>
+        </div>
+      </div>
+      
+      <div class="bg-[#cac1a5] p-4 rounded-lg">
+        <h3 class="font-semibold text-lg mb-2">Denominazione</h3>
+        <p>{{ wine.denomination }}</p>
+        <div class="mt-4">
+          <h4 class="font-medium">Altitudine</h4>
+          <p class="text-sm text-gray-600">270 m.s.l.m.</p>
+        </div>
+        <div class="mt-2">
+          <h4 class="font-medium">Metodo di coltivazione</h4>
+          <p class="text-sm text-gray-600">Guyot</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Messaggio di errore se il vino non viene trovato -->
+<div class="flex items-center justify-center h-screen" *ngIf="!wine">
+  <div class="text-center">
+    <h2 class="text-2xl font-bold text-gray-900 mb-4">Vino non trovato</h2>
+    <p class="text-gray-600">Il vino richiesto non esiste nel nostro catalogo.</p>
+    <a routerLink="/wines" class="mt-4 inline-block bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors">
+      Torna al catalogo
+    </a>
   </div>
 </div>

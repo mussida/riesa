@@ -10,7 +10,7 @@
     <div
       class="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 xl:gap-x-8"
     >
-      @for (wine of wines; track $index) {
+      @for (wine of wines; track wine.id) {
       <a
         [routerLink]="['/wines', wine.id]"
         class="group rounded-xl p-3 hover:scale-105 transition-transform duration-300"
@@ -18,14 +18,25 @@
       >
         <img
           [src]="wine.imageUrl"
-          alt="Tall slender porcelain bottle with natural clay textured body and cork stopper."
+          [alt]="'Bottiglia di ' + wine.name + ' - ' + wine.denomination"
           class="aspect-square w-full rounded-lg object-cover group-hover:opacity-75 xl:aspect-[7/8]"
         />
-        <div class="w-full flex justify-center items-center">
-          <h3 class="text-4xl font-lullabies-heavy"
+        <div class="w-full flex justify-center items-center mt-3">
+          <h3 class="text-4xl font-lullabies-heavy text-center"
           [ngStyle]="{ 'color': wine.textColor }">
             {{ wine.name }}
           </h3>
+        </div>
+        <!-- Informazioni aggiuntive opzionali -->
+        <div class="text-center mt-2">
+          <p class="text-sm opacity-75"
+             [ngStyle]="{ 'color': wine.textColor }">
+            {{ wine.denomination }}
+          </p>
+          <p class="text-xs opacity-60 mt-1"
+             [ngStyle]="{ 'color': wine.textColor }">
+            {{ wine.grape }} - {{ wine.alcohol }}
+          </p>
         </div>
       </a>
       }

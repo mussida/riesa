@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
+import { FooterComponent } from '../../components/footer/footer.component';
 
 export interface Wine {
   id?: number;
@@ -18,7 +19,7 @@ export interface Wine {
 
 @Component({
   selector: 'app-wines',
-  imports: [CommonModule, RouterLink],
+  imports: [CommonModule, RouterLink, FooterComponent],
   templateUrl: './wines.component.html',
   styleUrl: './wines.component.css',
 })

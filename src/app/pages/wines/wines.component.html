@@ -13,7 +13,7 @@
       @for (wine of wines; track wine.id) {
       <a
         [routerLink]="['/wines', wine.id]"
-        class="group rounded-xl p-3 hover:scale-105 transition-transform duration-300"
+        class="group rounded-xl p-3 hover:scale-105 transition-t  ransform duration-300"
         [ngStyle]="{ 'background-color': wine.background }"
       >
         <img
@@ -43,3 +43,4 @@
     </div>
   </div>
 </div>
+<app-footer></app-footer>

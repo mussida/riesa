@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
+import { AboutUsSectionComponent } from '../../components/about-us-section/about-us-section.component';
+import { BottlesCarouselComponent } from '../../components/bottles-carousel/bottles-carousel.component';
+import { FooterComponent } from '../../components/footer/footer.component';
 import { HomeImageComponent } from '../../components/home-image/home-image.component';
 import { WhoWeAreComponent } from '../../components/who-we-are/who-we-are.component';
-import { BottlesCarouselComponent } from '../../components/bottles-carousel/bottles-carousel.component';
-import { ImageSectionComponent } from '../../components/image-section/image-section.component';
-import { AboutUsSectionComponent } from '../../components/about-us-section/about-us-section.component';
 
 @Component({
   selector: 'app-home',
@@ -11,8 +11,8 @@ import { AboutUsSectionComponent } from '../../components/about-us-section/about
     HomeImageComponent,
     WhoWeAreComponent,
     BottlesCarouselComponent,
-    ImageSectionComponent,
     AboutUsSectionComponent,
+    FooterComponent,
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',

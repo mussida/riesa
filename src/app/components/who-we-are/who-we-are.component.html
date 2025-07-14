@@ -1,23 +1,90 @@
 <div
-  class="flex flex-col 2xl:flex-row justify-between md:px-32 md:py-32 px-14 py-14 gap-10 mb-20 opacity-0 transform translate-y-10 transition-all duration-700 ease-in-out"
+  class="flex flex-col items-center justify-between md:px-10 md:py-32 px-14 py-14 gap-10 mb-20 opacity-0 transform translate-y-10 transition-all duration-700 ease-in-out"
   [ngClass]="{ 'opacity-100 translate-y-0': isVisible }"
   #whoWeAre
 >
-  <div class="flex flex-col gap-2 items-center 2xl:items-start">
-    <div class="text-4xl sm:text-5xl md:text-6xl uppercase">
-      Il teritorio
-    </div>
-    <div class="text-2xl md:text-3xl 2xl:text-4xl max-w-3xl">
-      Riesa è un'azienda vinicola che produce vini di alta qualità. La nostra
-      azienda è situata in una delle regioni vinicole più prestigiose d'Italia.
-      Abbiamo una vasta gamma di vini, tra cui vini rossi, bianchi e rosati. I
-      nostri vini sono prodotti con uve di alta qualità e seguono un processo di
-      produzione tradizionale.
+  <div class="flex flex-col gap-2 items-center">
+    <div class="text-4xl sm:text-5xl md:text-6xl uppercase">Il territorio</div>
+    <div class="text-2xl md:text-3xl 2xl:text-4xl max-w-5xl text-center mt-6">
+      Nel cuore del Monferrato, le nostre vigne si estendono per 12 ettari tra
+      le colline di Mombello Monferrato e Solonghello, dove il paesaggio alterna
+      filari ordinati, campi, boschi e piccoli borghi antichi che punteggiano
+      l’orizzonte. Un territorio dalla lunga tradizione viticola, modellato da
+      secoli di storia agricola. I vigneti si trovano tra i 250 e i 320 metri di
+      altitudine, su terreni calcareo-argillosi che assicurano ottimo drenaggio,
+      profondità e mineralità, elementi fondamentali per vini complessi, longevi
+      e territoriali. Le esposizioni prevalentemente a sud e sud-ovest
+      permettono una maturazione completa e bilanciata delle uve, con escursioni
+      termiche che esaltano l’espressione aromatica, in particolare delle
+      varietà bianche.
     </div>
   </div>
   <div class="grid grid-cols-1 md:grid-cols-2 gap-6 2xl:w-1/2 mt-10">
-    <img class="rounded h-full w-full  object-cover" src="assets/images/detail3.jpg" alt="">
-    <img class="rounded h-full w-full  object-cover" src="assets/images/detail4.jpg" alt="">
+    <img
+      class="rounded h-full w-full object-cover"
+      src="assets/images/detail3.jpg"
+      alt=""
+    />
+    <img
+      class="rounded h-full w-full object-cover"
+      src="assets/images/detail4.jpg"
+      alt=""
+    />
+  </div>
+  <div class="text-2xl md:text-3xl 2xl:text-4xl text-center mt-6">
+    <p class="mb-6">Coltiviamo cinque vitigni:</p>
+
+    <div class="space-y-4 text-left max-w-4xl mx-auto">
+      <div class="flex items-start gap-4">
+        <div class="w-2 h-2 bg-red-800 rounded-full mt-3 flex-shrink-0"></div>
+        <div>
+          <span class="font-bold">Barbera:</span> regina del Monferrato, da cui
+          otteniamo vini intensi, energici e profondi.
+        </div>
+      </div>
+
+      <div class="flex items-start gap-4">
+        <div class="w-2 h-2 bg-green-800 rounded-full mt-3 flex-shrink-0"></div>
+        <div>
+          <span class="font-bold">Grignolino:</span> raffinato, elegante e
+          autentico, simbolo del Piemonte più schietto.
+        </div>
+      </div>
+
+      <div class="flex items-start gap-4">
+        <div
+          class="w-2 h-2 bg-purple-800 rounded-full mt-3 flex-shrink-0"
+        ></div>
+        <div>
+          <span class="font-bold">Nebbiolo:</span> un progetto ambizioso che si
+          nutre di tempo, esposizione e pazienza.
+        </div>
+      </div>
+
+      <div class="flex items-start gap-4">
+        <div
+          class="w-2 h-2 bg-yellow-600 rounded-full mt-3 flex-shrink-0"
+        ></div>
+        <div>
+          <span class="font-bold">Cortese:</span> fresco, sapido, minerale,
+          perfetto per raccontare il lato bianco del Monferrato.
+        </div>
+      </div>
+
+      <div class="flex items-start gap-4">
+        <div class="w-2 h-2 bg-pink-700 rounded-full mt-3 flex-shrink-0"></div>
+        <div>
+          <span class="font-bold">Sauvignon Blanc:</span> interpretato in chiave
+          piemontese, con eleganza, tensione e finezza.
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-8 text-lg md:text-xl max-w-4xl  text-gray-700">
+      Ogni vigneto è gestito con attenzione, rispetto per la natura e pratiche
+      agronomiche sostenibili. Il nostro obiettivo è chiaro: trasferire in
+      bottiglia l'identità di ogni vigna, valorizzando le differenze tra un
+      versante e l'altro, tra una vendemmia e la successiva.
+    </div>
   </div>
 </div>
-

@@ -36,7 +36,7 @@
         <p class="mb-8 text-xl sm:text-3xl md:text-4xl uppercase">Coltiviamo cinque vitigni:</p>
         <div class="space-y-10 text-center w-full mt-6 md:mt-18">
           @for (vitigno of vitigni; track vitigno.nome) {
-            <div class="flex items-center justify-center gap-4 pb-8" 
+            <div class="flex items-center justify-center gap-4 pb-3" 
                  [class]="$last ? '' : 'border-b border-stone-300'">
               <div class="text-center">
                 <span class="font-bold text-center">{{ vitigno.nome }}:</span> {{ vitigno.descrizione }}

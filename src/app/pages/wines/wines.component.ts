@@ -195,7 +195,7 @@ export class WinesComponent {
       id: 7,
       name: 'Naima',
       denomination: 'Vino Rosso',
-      grape: '50% Barbera 50% Barbera', // Come riportato nel PDF
+      grape: '50% Barbera 50% Bracchetto', // Come riportato nel PDF
       altitude: '270 m.s.l.m.m.',
       soilComposition: '', // Non specificata nel PDF
       cultivationMethod: 'Guyot',
@@ -212,7 +212,7 @@ export class WinesComponent {
       format: '0.75 l',
       closure: 'Tappo sughero',
       imageUrl: 'assets/images/2.png',
-      background: '#8B4A6B',
+      background: '#A33A4A',
       textColor: '#E5D5A3',
     },
   ];

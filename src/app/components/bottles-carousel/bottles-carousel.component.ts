@@ -40,7 +40,6 @@ export interface Wine {
   textColor?: string;
 }
 
-
 @Component({
   selector: 'app-bottles-carousel',
   imports: [
@@ -55,7 +54,7 @@ export interface Wine {
 export class BottlesCarouselComponent {
   @ViewChild('mainSplide') rowTextWines: NgxSplideComponent | undefined;
 
-     wines: Wine[] = [
+  wines: Wine[] = [
     {
       id: 1,
       name: 'Matunè',
@@ -75,7 +74,8 @@ export class BottlesCarouselComponent {
       servingTemperature: '18°C',
       agingPotential: '3 – 5 anni',
       format: '0.75 l',
-      closure: 'Tappo sughero',
+      closure:
+        'Tappo Nomacorc Select Green ottenuto da materie prime sostenibili e rinnovabili derivate dalla canna da zucchero.',
       imageUrl: 'assets/images/4.png',
       background: '#2A413B',
       textColor: '#E5D5A3',
@@ -99,7 +99,7 @@ export class BottlesCarouselComponent {
     //   servingTemperature: '18°C',
     //   agingPotential: '8 – 10 anni',
     //   format: '0.75 l',
-    //   closure: 'Tappo sughero',
+    //   closure: 'Tappo Nomacorc Select Green ottenuto da materie prime sostenibili e rinnovabili derivate dalla canna da zucchero.',
     //   imageUrl: 'assets/images/try.png',
     //   background: '#2A413B',
     //   textColor: '#E5D5A3',
@@ -123,7 +123,8 @@ export class BottlesCarouselComponent {
       servingTemperature: '10°C',
       agingPotential: '2 – 3 anni',
       format: '0.75 l',
-      closure: 'Tappo sughero',
+      closure:
+        'Tappo Nomacorc Select Green ottenuto da materie prime sostenibili e rinnovabili derivate dalla canna da zucchero.',
       imageUrl: 'assets/images/6.png',
       background: '#19120F',
       textColor: '#19120F',
@@ -171,7 +172,8 @@ export class BottlesCarouselComponent {
       servingTemperature: '8°C',
       agingPotential: '2 – 3 anni',
       format: '0.75 l',
-      closure: 'Tappo sughero',
+      closure:
+        'Tappo Nomacorc Select Green ottenuto da materie prime sostenibili e rinnovabili derivate dalla canna da zucchero.',
       imageUrl: 'assets/images/5.png',
       background: '#B896A5',
       textColor: '#692D46',
@@ -195,7 +197,8 @@ export class BottlesCarouselComponent {
       servingTemperature: '8°C',
       agingPotential: '2 – 3 anni',
       format: '0.75 l',
-      closure: 'Tappo sughero',
+      closure:
+        'Tappo Nomacorc Select Green ottenuto da materie prime sostenibili e rinnovabili derivate dalla canna da zucchero.',
       imageUrl: 'assets/images/3.png',
       background: '#2A413B',
       textColor: '#E5D5A3',
@@ -204,7 +207,7 @@ export class BottlesCarouselComponent {
       id: 7,
       name: 'Naima',
       denomination: 'Vino Rosso',
-      grape: '50% Barbera 50% Barbera', // Come riportato nel PDF
+      grape: '50% Barbera 50% Bracchetto', // Come riportato nel PDF
       altitude: '270 m.s.l.m.m.',
       soilComposition: '', // Non specificata nel PDF
       cultivationMethod: 'Guyot',
@@ -219,12 +222,13 @@ export class BottlesCarouselComponent {
       servingTemperature: '18°C',
       agingPotential: '3 – 5 anni',
       format: '0.75 l',
-      closure: 'Tappo sughero',
+      closure:
+        'Tappo Nomacorc Select Green ottenuto da materie prime sostenibili e rinnovabili derivate dalla canna da zucchero.',
       imageUrl: 'assets/images/2.png',
-      background: '#8B4A6B',
+      background: '#A33A4A',
       textColor: '#E5D5A3',
     },
-  ]; 
+  ];
 
   currentBackground: string = this.wines[0].background;
   activeIndex = 0;

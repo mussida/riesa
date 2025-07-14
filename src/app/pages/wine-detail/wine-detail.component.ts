@@ -208,7 +208,7 @@ export class WineDetailComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.params.subscribe((params) => {
-      const wineId = +params['id']; // Il + converte la stringa in numero
+      const wineId = +params['id']; 
       this.wine = this.wines.find((w) => w.id === wineId);
     });
   }

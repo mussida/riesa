@@ -125,7 +125,7 @@ export class BottlesCarouselComponent {
       format: '0.75 l',
       closure: 'Tappo sughero',
       imageUrl: 'assets/images/6.png',
-      background: '#D4C4A8',
+      background: '#19120F',
       textColor: '#19120F',
     },
     {

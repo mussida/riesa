@@ -1,5 +1,5 @@
 <div
-  class="fixed top-0 z-10  inset-0 bg-primary p-3 flex flex-col items-center md:items-start justify-center transition-all duration-500 ease-in-out overflow-hidden"
+  class="fixed top-0 z-[999] inset-0 bg-primary p-3 flex flex-col items-center md:items-start justify-center transition-all duration-500 ease-in-out overflow-hidden"
   [ngClass]="{
     'opacity-100 pointer-events-auto visible': isMenuActive(),
     'opacity-0 pointer-events-none invisible': !isMenuActive()
@@ -19,6 +19,17 @@
         >BOTTIGLIE</a
       >
     </li>
+    <li>
+      <a
+        href="#"
+        class="transition"
+        routerLinkActive
+        #rlaArchive="routerLinkActive"
+        (click)="toggleMenu()"
+        [routerLink]="['/gallery']"
+        >GALLERY</a
+      >
+    </li> 
     <!-- <li><a href="#" class="transition">CHI SIAMO</a></li>
     <li><a href="#" class="transition">CONTATTI</a></li> -->
   </ul>

@@ -32,4 +32,7 @@ export class NavbarComponent implements OnInit {
       document.body.style.overflow = '';
     }
   }
+  get isGalleryRoute(): boolean {
+    return this.router.url.includes('/gallery');
+  }
 }

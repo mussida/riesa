@@ -4,6 +4,7 @@ import { BottlesCarouselComponent } from '../../components/bottles-carousel/bott
 import { FooterComponent } from '../../components/footer/footer.component';
 import { HomeImageComponent } from '../../components/home-image/home-image.component';
 import { WhoWeAreComponent } from '../../components/who-we-are/who-we-are.component';
+import { FiveWinesComponent } from "../five-wines/five-wines.component";
 
 @Component({
   selector: 'app-home',
@@ -13,7 +14,8 @@ import { WhoWeAreComponent } from '../../components/who-we-are/who-we-are.compon
     BottlesCarouselComponent,
     AboutUsSectionComponent,
     FooterComponent,
-  ],
+    FiveWinesComponent
+],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
 })

@@ -1,11 +1,17 @@
 <div
-  class="flex flex-col items-center justify-between md:px-10 md:py-32 px-14 py-14 gap-10 mb-20 opacity-0 transform translate-y-10 transition-all duration-700 ease-in-out"
+  class="flex flex-col items-center justify-between md:pt-32 pt-14 gap-10 opacity-0 transform translate-y-10 transition-all duration-700 ease-in-out"
   [ngClass]="{ 'opacity-100 translate-y-0': isVisible }"
   #whoWeAre
 >
   <div class="flex flex-col gap-2 items-center text-stone-600">
-    <div class="text-4xl sm:text-5xl md:text-6xl uppercase">Il territorio</div>
-    <div class="text-2xl md:text-3xl 2xl:text-4xl max-w-5xl text-center mt-6">
+    <h1
+      class="mt-24 text-5xl font-semibold tracking-tight text-pretty text-stone-600 sm:mt-10 sm:text-7xl"
+    >
+      Il territorio
+    </h1>
+    <div
+      class="text-2xl md:text-3xl 2xl:text-4xl max-w-5xl text-center mt-6 px-8"
+    >
       Nel cuore del Monferrato, le nostre vigne si estendono per 12 ettari tra
       le colline di Mombello Monferrato e Solonghello, dove il paesaggio alterna
       filari ordinati, campi, boschi e piccoli borghi antichi che punteggiano
@@ -19,37 +25,16 @@
       varietà bianche.
     </div>
   </div>
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-6 2xl:w-1/2 mt-10">
+  <div class="grid grid-cols-1 md:grid-cols-2 mt-10">
     <img
-      class="rounded h-full w-full object-cover"
+      class="h-full w-full object-cover"
       src="assets/images/detail3.jpg"
       alt=""
     />
     <img
-      class="rounded h-full w-full object-cover"
+      class="h-full w-full object-cover"
       src="assets/images/_1664420.jpg"
       alt=""
     />
   </div>
-<div class="w-full px-4 md:px-8 lg:px-16 xl:px-24 2xl:px-32">
-      <div class="text-xl sm:text-2xl md:text-3xl 2xl:text-4xl text-stone-600 text-center mt-6">
-        <p class="mb-8 text-xl sm:text-3xl md:text-4xl uppercase">Coltiviamo cinque vitigni</p>
-        <div class="space-y-10 text-center w-full mt-6 md:mt-18">
-          @for (vitigno of vitigni; track vitigno.nome) {
-            <div class="flex items-center justify-center gap-4 pb-3" 
-                 [class]="$last ? '' : 'border-b border-stone-300'">
-              <div class="text-center">
-                <span class="font-bold text-center">{{ vitigno.nome }}:</span> {{ vitigno.descrizione }}
-              </div>
-            </div>
-          }
-        </div>
-        <div class="pt-8 text-stone-600 text-justify">
-          Ogni vigneto è gestito con attenzione, rispetto per la natura e pratiche
-          agronomiche sostenibili. Il nostro obiettivo è chiaro: trasferire in
-          bottiglia l'identità di ogni vigna, valorizzando le differenze tra un
-          versante e l'altro, tra una vendemmia e la successiva.
-        </div>
-      </div>
-    </div>
 </div>

@@ -1,0 +1,117 @@
+<section
+  class="min-h-screen bg-[##ACA796] relative overflow-hidden text-stone-600"
+>
+  <div class="relative z-10 pt-8 pb-4">
+    <h1
+      class="font-bold text-[4rem] md:text-[10rem] lg:text-[14rem] xl:text-[17rem] leading-none tracking-tight select-none opacity-90 text-center px-4"
+    >
+      GALLERY
+    </h1>
+  </div>
+
+  <div
+    class="grid grid-cols-1 xl:grid-cols-2 px-8 md:px-12 lg:px-16 gap-4 md:gap-6 lg:gap-8 md:-mt-16 lg:-mt-32"
+  >
+    <div class="flex-1 relative overflow-hidden group rounded-lg">
+      <img
+        [src]="images[currentImageIndex].left"
+        [alt]="'Gallery image left ' + (currentImageIndex + 1)"
+        class="w-full h-full object-cover transition-all duration-1000 ease-in-out group-hover:scale-105"
+        loading="lazy"
+      />
+
+      <div class="absolute inset-0 bg-black/5"></div>
+    </div>
+
+    <div class="flex-1 relative overflow-hidden group rounded-lg">
+      <img
+        [src]="images[currentImageIndex].right"
+        [alt]="'Gallery image right ' + (currentImageIndex + 1)"
+        class="w-full h-full object-cover transition-all duration-1000 ease-in-out group-hover:scale-105"
+        loading="lazy"
+      />
+
+      <div class="absolute inset-0 bg-black/5"></div>
+    </div>
+  </div>
+</section>
+<!-- <section
+  class="min-h-screen bg-[##ACA796] px-8 md:px-16 lg:px-24 py-16 md:py-24 text-stone-600"
+>
+  <div class="max-w-7xl mx-auto space-y-12 md:space-y-16">
+    <div
+      class="font-bold text-3xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight"
+    >
+      I'm an award-winning, multi-disciplinary Artist, Creative Director, and
+      female founder who loves storytelling in all its forms.
+    </div>
+
+    <div
+      class="font-bold text-3xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight"
+    >
+      For over 17 years, my creative practice has moved between the
+    </div>
+
+    <div
+      class="font-bold text-3xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight"
+    >
+      I thrive in collaboration, seamlessly moving from ideation to
+    </div>
+  </div>
+</section> -->
+
+<section class="min-h-screen bg-[##ACA796] md:py-16">
+  <div class="mx-auto px-4 md:px-8">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 mb-8 md:mb-16">
+      <div class="relative overflow-hidden group">
+        <img
+          src="assets/images/bw27.jpg"
+          alt="Portfolio image 1"
+          class="w-full h-full object-cover transition-all duration-500 ease-in-out group-hover:scale-105"
+        />
+      </div>
+
+      <div class="relative overflow-hidden group">
+        <img
+          src="assets/images/bw16.jpg"
+          alt="Portfolio image 2"
+          class="w-full h-full object-cover transition-all duration-500 ease-in-out group-hover:scale-105"
+        />
+      </div>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 mb-8 md:mb-16">
+      <div class="relative overflow-hidden group">
+        <img
+          src="assets/images/bw20.jpg"
+          alt="Portfolio image 1"
+          class="w-full h-full object-cover transition-all duration-500 ease-in-out group-hover:scale-105"
+        />
+      </div>
+
+      <div class="relative overflow-hidden group">
+        <img
+          src="assets/images/bw21.JPG"
+          alt="Portfolio image 2"
+          class="w-full h-full object-cover transition-all duration-500 ease-in-out group-hover:scale-105"
+        />
+      </div>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 mb-8 md:mb-16">
+      <div class="relative overflow-hidden group">
+        <img
+          src="assets/images/bw.jpg"
+          alt="Portfolio image 1"
+          class="w-full h-full object-cover transition-all duration-500 ease-in-out group-hover:scale-105"
+        />
+      </div>
+
+      <div class="relative overflow-hidden group">
+        <img
+          src="assets/images/bw30.jpg"
+          alt="Portfolio image 2"
+          class="w-full h-full object-cover transition-all duration-500 ease-in-out group-hover:scale-105"
+        />
+      </div>
+    </div>
+  </div>
+</section>

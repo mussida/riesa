@@ -1,0 +1,33 @@
+<div class="relative bg-[#c1baa2]">
+  <div class="mx-auto  lg:grid lg:grid-cols-2">
+    <div
+      class="pb-24 sm:pb-32 lg:col-span-1 lg:pt-40 lg:pb-48 flex flex-col items-center justify-center"
+    >
+      <div class="mx-aut max-w-lg lg:mx-0">
+        <h1
+          class="mt-24 p-4 text-5xl font-semibold tracking-tight text-pretty text-stone-600 sm:mt-10 sm:text-7xl"
+        >
+          Coltiviamo cinque vitigni
+        </h1>
+        @for (vitigno of vitigni; track $index) {
+
+        <p
+          class="mt-8 w-full p-4 text-lg font-medium text-pretty text-stone-600 sm:text-xl/8"
+        >
+          <span class="font-bold">{{ vitigno.nome }}:</span>
+          {{ vitigno.descrizione }}
+        </p>
+        }
+      </div>
+    </div>
+    <div
+      class="relative lg:col-span-1 h-full w-full"
+    >
+      <img
+        src="assets/images/gal2.jpg"
+        alt=""
+        class="h-full w-full object-cover"
+      />
+    </div>
+  </div>
+</div>

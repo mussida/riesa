@@ -12,29 +12,77 @@
   <div
     class="grid grid-cols-1 xl:grid-cols-2 px-8 md:px-12 lg:px-16 gap-4 md:gap-6 lg:gap-8 md:-mt-16 lg:-mt-32"
   >
-    <div class="flex-1 relative overflow-hidden group rounded-lg">
+    <div
+      class="flex-1 relative overflow-hidden group rounded-lg cursor-pointer"
+      (click)="openLightbox(staticImages[0].left)"
+    >
       <img
-        [src]="images[currentImageIndex].left"
-        [alt]="'Gallery image left ' + (currentImageIndex + 1)"
+        [src]="staticImages[0].left"
+        alt="Gallery image left"
         class="w-full h-full object-cover transition-all duration-1000 ease-in-out group-hover:scale-105"
         loading="lazy"
       />
-
-      <div class="absolute inset-0 bg-black/5"></div>
+      <div
+        class="absolute inset-0 bg-black/5 group-hover:bg-black/10 transition-all duration-300"
+      ></div>
+      <div
+        class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+      >
+        <!-- <div class="bg-white/90 rounded-full p-3">
+          <svg
+            class="w-6 h-6 text-stone-600"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"
+            ></path>
+          </svg>
+        </div> -->
+      </div>
     </div>
 
-    <div class="flex-1 relative overflow-hidden group rounded-lg">
+    <div
+      class="flex-1 relative overflow-hidden group rounded-lg cursor-pointer"
+      (click)="openLightbox(staticImages[0].right)"
+    >
       <img
-        [src]="images[currentImageIndex].right"
-        [alt]="'Gallery image right ' + (currentImageIndex + 1)"
+        [src]="staticImages[0].right"
+        alt="Gallery image right"
         class="w-full h-full object-cover transition-all duration-1000 ease-in-out group-hover:scale-105"
         loading="lazy"
       />
-
-      <div class="absolute inset-0 bg-black/5"></div>
+      <div
+        class="absolute inset-0 bg-black/5 group-hover:bg-black/10 transition-all duration-300"
+      ></div>
+      <div
+        class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+      >
+        <!-- <div class="bg-white/90 rounded-full p-3">
+          <svg
+            class="w-6 h-6 text-stone-600"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"
+            ></path>
+          </svg>
+        </div> -->
+      </div>
     </div>
   </div>
 </section>
+
+<!-- Sezione testo -->
 <!-- <section
   class="min-h-screen bg-[##ACA796] px-8 md:px-16 lg:px-24 py-16 md:py-24 text-stone-600"
 >
@@ -60,58 +108,318 @@
   </div>
 </section> -->
 
+<!-- Griglia immagini con lightbox -->
 <section class="min-h-screen bg-[##ACA796] md:py-16 py-8">
   <div class="mx-auto px-4 md:px-8">
     <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 mb-8 md:mb-16">
-      <div class="relative overflow-hidden group">
+      <div
+        class="relative overflow-hidden group cursor-pointer"
+        (click)="openLightbox(gridImages[0])"
+      >
         <img
-          src="assets/images/bw27.jpg"
+          [src]="gridImages[0]"
           alt="Portfolio image 1"
           class="w-full h-full object-cover transition-all duration-500 ease-in-out group-hover:scale-105"
         />
+        <div
+          class="absolute inset-0 bg-black/5 group-hover:bg-black/20 transition-all duration-300"
+        ></div>
+        <div
+          class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+        >
+          <!-- <div class="bg-white/90 rounded-full p-4">
+            <svg
+              class="w-8 h-8 text-stone-600"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"
+              ></path>
+            </svg>
+          </div> -->
+        </div>
       </div>
 
-      <div class="relative overflow-hidden group">
+      <div
+        class="relative overflow-hidden group cursor-pointer"
+        (click)="openLightbox(gridImages[1])"
+      >
         <img
-          src="assets/images/bw16.jpg"
+          [src]="gridImages[1]"
           alt="Portfolio image 2"
           class="w-full h-full object-cover transition-all duration-500 ease-in-out group-hover:scale-105"
         />
+        <div
+          class="absolute inset-0 bg-black/5 group-hover:bg-black/20 transition-all duration-300"
+        ></div>
+        <div
+          class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+        >
+          <!-- <div class="bg-white/90 rounded-full p-4">
+            <svg
+              class="w-8 h-8 text-stone-600"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"
+              ></path>
+            </svg>
+          </div> -->
+        </div>
       </div>
     </div>
+
     <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 mb-8 md:mb-16">
-      <div class="relative overflow-hidden group">
+      <div
+        class="relative overflow-hidden group cursor-pointer"
+        (click)="openLightbox(gridImages[2])"
+      >
         <img
-          src="assets/images/bw20.jpg"
-          alt="Portfolio image 1"
+          [src]="gridImages[2]"
+          alt="Portfolio image 3"
           class="w-full h-full object-cover transition-all duration-500 ease-in-out group-hover:scale-105"
         />
+        <div
+          class="absolute inset-0 bg-black/5 group-hover:bg-black/20 transition-all duration-300"
+        ></div>
+        <div
+          class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+        >
+          <!-- <div class="bg-white/90 rounded-full p-4">
+            <svg
+              class="w-8 h-8 text-stone-600"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"
+              ></path>
+            </svg>
+          </div> -->
+        </div>
       </div>
 
-      <div class="relative overflow-hidden group">
+      <div
+        class="relative overflow-hidden group cursor-pointer"
+        (click)="openLightbox(gridImages[3])"
+      >
         <img
-          src="assets/images/bw21.JPG"
-          alt="Portfolio image 2"
+          [src]="gridImages[3]"
+          alt="Portfolio image 4"
           class="w-full h-full object-cover transition-all duration-500 ease-in-out group-hover:scale-105"
         />
+        <div
+          class="absolute inset-0 bg-black/5 group-hover:bg-black/20 transition-all duration-300"
+        ></div>
+        <div
+          class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+        >
+          <!-- <div class="bg-white/90 rounded-full p-4">
+            <svg
+              class="w-8 h-8 text-stone-600"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"
+              ></path>
+            </svg>
+          </div> -->
+        </div>
       </div>
     </div>
+
     <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 mb-8 md:mb-16">
-      <div class="relative overflow-hidden group">
+      <div
+        class="relative overflow-hidden group cursor-pointer"
+        (click)="openLightbox(gridImages[4])"
+      >
         <img
-          src="assets/images/bw.jpg"
-          alt="Portfolio image 1"
+          [src]="gridImages[4]"
+          alt="Portfolio image 5"
           class="w-full h-full object-cover transition-all duration-500 ease-in-out group-hover:scale-105"
         />
+        <div
+          class="absolute inset-0 bg-black/5 group-hover:bg-black/20 transition-all duration-300"
+        ></div>
+        <div
+          class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+        >
+          <!-- <div class="bg-white/90 rounded-full p-4">
+            <svg
+              class="w-8 h-8 text-stone-600"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"
+              ></path>
+            </svg>
+          </div> -->
+        </div>
       </div>
 
-      <div class="relative overflow-hidden group">
+      <div
+        class="relative overflow-hidden group cursor-pointer"
+        (click)="openLightbox(gridImages[5])"
+      >
         <img
-          src="assets/images/bw30.jpg"
-          alt="Portfolio image 2"
+          [src]="gridImages[5]"
+          alt="Portfolio image 6"
           class="w-full h-full object-cover transition-all duration-500 ease-in-out group-hover:scale-105"
         />
+        <div
+          class="absolute inset-0 bg-black/5 group-hover:bg-black/20 transition-all duration-300"
+        ></div>
+        <div
+          class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+        >
+          <!-- <div class="bg-white/90 rounded-full p-4">
+            <svg
+              class="w-8 h-8 text-stone-600"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"
+              ></path>
+            </svg>
+          </div> -->
+        </div>
       </div>
     </div>
   </div>
 </section>
+
+<!-- Lightbox Modal -->
+<div
+  *ngIf="isLightboxOpen"
+  class="fixed inset-0 z-[99999] flex items-center justify-center bg-black/90 backdrop-blur-sm"
+  (click)="closeLightbox()"
+  (keydown)="onKeyDown($event)"
+  tabindex="0"
+>
+  <!-- Contenuto del lightbox -->
+  <div
+    class="relative max-w-7xl max-h-[90vh] w-full h-full flex items-center justify-center p-4"
+  >
+    <!-- Immagine principale -->
+    <img
+      [src]="allImages[currentLightboxIndex]"
+      [alt]="'Gallery image ' + (currentLightboxIndex + 1)"
+      class="max-w-full max-h-full object-contain rounded-lg shadow-2xl"
+      (click)="$event.stopPropagation()"
+    />
+
+    <!-- Pulsante chiudi -->
+    <button
+      (click)="closeLightbox()"
+      class="absolute top-4 right-4 rounded-full p-3 transition-all duration-200 text-white cursor-pointer"
+      aria-label="Chiudi lightbox"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="currentColor"
+        class="size-8"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M6 18 18 6M6 6l12 12"
+        />
+      </svg>
+    </button>
+
+    <!-- Freccia sinistra -->
+    <button
+      (click)="prevImage(); $event.stopPropagation()"
+      class="absolute cursor-pointer left-4 top-1/2 transform -translate-y-1/2 rounded-full p-3 transition-all duration-200"
+      aria-label="Immagine precedente"
+    >
+      <svg
+        class="w-6 h-6 text-white"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M15 19l-7-7 7-7"
+        ></path>
+      </svg>
+    </button>
+
+    <!-- Freccia destra -->
+    <button
+      (click)="nextImage(); $event.stopPropagation()"
+      class="absolute cursor-pointer right-4 top-1/2 transform -translate-y-1/2 bg-transparent  rounded-full p-3 transition-all duration-200 "
+      aria-label="Immagine successiva"
+    >
+      <svg
+        class="w-6 h-6 text-white"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M9 5l7 7-7 7"
+        ></path>
+      </svg>
+    </button>
+
+    <!-- Indicatori -->
+    <div
+      class="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2"
+    >
+      <div
+        *ngFor="let image of allImages; let i = index"
+        class="w-2 h-2 rounded-full transition-all duration-200 cursor-pointer"
+        [class]="i === currentLightboxIndex ? 'bg-white' : 'bg-white/50'"
+        (click)="currentLightboxIndex = i; $event.stopPropagation()"
+      ></div>
+    </div>
+
+    <!-- Contatore immagini -->
+    <!-- <div
+      class="absolute top-4 left-4 bg-white/20 rounded-full px-4 py-2 backdrop-blur-sm"
+    >
+      <span class="text-white text-sm font-medium">
+        {{ currentLightboxIndex + 1 }} / {{ allImages.length }}
+      </span>
+    </div> -->
+  </div>
+</div>

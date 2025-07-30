@@ -1,7 +1,5 @@
-import { Component, OnInit, OnDestroy, model } from '@angular/core';
+import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { NavigationEnd, Router } from '@angular/router';
-import { filter } from 'rxjs';
 
 @Component({
   selector: 'app-gallery',
@@ -9,57 +7,86 @@ import { filter } from 'rxjs';
   templateUrl: './gallery.component.html',
   styleUrl: './gallery.component.css',
 })
-export class GalleryComponent implements OnInit, OnDestroy {
-  private intervalId: any;
-  constructor(private router: Router) {}
-
-  images = [
+export class GalleryComponent {
+  // Immagini statiche per la sezione superiore
+  staticImages = [
     {
       left: 'assets/images/bw18.jpg',
       right: 'assets/images/bw23.jpg',
     },
-    {
-      left: 'assets/images/bw26.jpg',
-      right: 'assets/images/b24.jpg',
-    },
-    {
-      left: 'assets/images/bw11.jpg',
-      right: 'assets/images/bw15.jpg',
-    },
-    {
-      left: 'assets/images/bw31.jpg',
-      right: 'assets/images/bw5.jpg',
-    },
   ];
 
-  landImages = [
+  // Tutte le immagini della galleria per il lightbox
+  allImages = [
+    'assets/images/bw18.jpg',
+    'assets/images/bw23.jpg',
     'assets/images/bw27.jpg',
     'assets/images/bw16.jpg',
     'assets/images/bw20.jpg',
-    'assets/images/bw21.jpg',
+    'assets/images/bw21.JPG',
     'assets/images/bw19.jpg',
     'assets/images/bw.jpg',
     'assets/images/bw30.jpg',
-    'assets/images/gal8.jpg',
-    'assets/images/gal9.jpg',
+
   ];
 
-  currentImageIndex = 0;
+  // Immagini per la griglia inferiore
+  gridImages = [
+    'assets/images/bw27.jpg',
+    'assets/images/bw16.jpg',
+    'assets/images/bw20.jpg',
+    'assets/images/bw21.JPG',
+    'assets/images/bw.jpg',
+    'assets/images/bw30.jpg',
+  ];
 
-  ngOnInit() {
-    this.startImageSequence();
-  }
+  // Stato del lightbox
+  isLightboxOpen = false;
+  currentLightboxIndex = 0;
 
-  ngOnDestroy() {
-    if (this.intervalId) {
-      clearInterval(this.intervalId);
+  // Apre il lightbox con l'immagine selezionata
+  openLightbox(imageSrc: string) {
+    const index = this.allImages.indexOf(imageSrc);
+    if (index !== -1) {
+      this.currentLightboxIndex = index;
+      this.isLightboxOpen = true;
+      document.body.style.overflow = 'hidden'; // Blocca lo scroll del body
     }
   }
 
-  private startImageSequence() {
-    this.intervalId = setInterval(() => {
-      this.currentImageIndex =
-        (this.currentImageIndex + 1) % this.images.length;
-    }, 3000);
+  // Chiude il lightbox
+  closeLightbox() {
+    this.isLightboxOpen = false;
+    document.body.style.overflow = 'auto'; // Riabilita lo scroll del body
+  }
+
+  // Naviga alla prossima immagine
+  nextImage() {
+    this.currentLightboxIndex =
+      (this.currentLightboxIndex + 1) % this.allImages.length;
+  }
+
+  // Naviga all'immagine precedente
+  prevImage() {
+    this.currentLightboxIndex =
+      (this.currentLightboxIndex - 1 + this.allImages.length) %
+      this.allImages.length;
+  }
+
+  // Gestisce i tasti freccia e ESC
+  onKeyDown(event: KeyboardEvent) {
+    if (!this.isLightboxOpen) return;
+
+    switch (event.key) {
+      case 'Escape':
+        this.closeLightbox();
+        break;
+      case 'ArrowLeft':
+        this.prevImage();
+        break;
+      case 'ArrowRight':
+        this.nextImage();
+        break;
+    }
   }
 }

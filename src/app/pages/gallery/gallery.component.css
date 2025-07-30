@@ -1,56 +1,33 @@
-/* Stili aggiuntivi per migliorare l'effetto */
-.gallery-section {
-  font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+/* Stili aggiuntivi per il lightbox se necessari */
+.lightbox-enter {
+  opacity: 0;
+  transform: scale(0.9);
 }
 
-/* Animazione di fade per le immagini */
-@keyframes fadeInImage {
-  from {
-    opacity: 0;
-    transform: scale(1.1);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
+.lightbox-enter-active {
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 300ms ease-in-out, transform 300ms ease-in-out;
 }
 
-/* Effetto di parallax sottile sul testo */
-@media (prefers-reduced-motion: no-preference) {
-  .gallery-title {
-    transform-style: preserve-3d;
-    animation: subtleFloat 8s ease-in-out infinite;
-  }
+.lightbox-leave {
+  opacity: 1;
+  transform: scale(1);
 }
 
-@keyframes subtleFloat {
-  0%, 100% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
+.lightbox-leave-active {
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity 300ms ease-in-out, transform 300ms ease-in-out;
 }
 
-/* Responsive design per mobile */
-@media (max-width: 768px) {
-  /* Assicura che la scritta non sfori mai */
-  .gallery-title {
-    font-size: clamp(2rem, 8vw, 4rem) !important;
-    line-height: 0.9;
-    word-break: break-word;
-  }
+/* Smooth scrolling per il body quando il lightbox è aperto */
+body.lightbox-open {
+  overflow: hidden;
 }
 
-/* Altezza maggiore per le immagini su desktop */
-@media (min-width: 768px) {
-  .gallery-images-container {
-    min-height: 70vh !important;
-  }
-}
-
-/* Preload delle immagini per transizioni smooth */
-.gallery-image {
-  will-change: transform, opacity;
-  backface-visibility: hidden;
+/* Focus styles per accessibilità */
+button:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
 }

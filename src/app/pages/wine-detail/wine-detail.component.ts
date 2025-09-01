@@ -109,7 +109,7 @@ export class WineDetailComponent implements OnInit {
     {
       id: 4,
       name: 'Gamèl',
-      denomination: 'Brut – Blanc de Blancs D.O.C.',
+      denomination: 'Brut – Blanc de Blancs',
       grape: '50% Cortese 50% Pinot Bianco',
       altitude: '270 m.s.l.m.m.',
       soilComposition: '', // Non specificata nel PDF

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
 export interface Wine {
@@ -26,7 +26,7 @@ export interface Wine {
 
 @Component({
   selector: 'app-wine-detail',
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLink],
   templateUrl: './wine-detail.component.html',
   styleUrl: './wine-detail.component.css',
 })

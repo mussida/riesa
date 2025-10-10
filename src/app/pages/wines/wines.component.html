@@ -1,11 +1,17 @@
 <div class="mt-[112px]">
-  <div
-    class="mx-auto max-w-2xl px-4 py-6 pb-16 sm:px-6 lg:max-w-7xl lg:px-8"
-  >
-    <div class="flex justify-center items-center mb-16">
-        <h1 class="text-text text-4xl uppercase tracking-tight sm:text-5xl">
-          I nostri vini
-        </h1>
+  <div class="mx-auto max-w-2xl px-4 py-6 pb-16 sm:px-6 lg:max-w-7xl lg:px-8">
+    <div class="flex justify-center items-center mb-16 flex-col gap-2">
+      <h1 class="text-text text-4xl uppercase tracking-tight sm:text-5xl">
+        I nostri vini
+      </h1>
+      <div class="group relative cursor-pointer text-lg font-medium">
+        <div class="flex items-center justify-center gap-2">
+          <div [routerLink]="'/preventivo'">Richiedi preventivo</div>
+        </div>
+        <div
+          class="absolute left-0 bottom-0 h-[2px] w-0 bg-[#800020] transition-all duration-300 group-hover:w-full"
+        ></div>
+      </div>
     </div>
     <div
       class="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 xl:gap-x-8"
@@ -13,7 +19,7 @@
       @for (wine of wines; track wine.id) {
       <a
         [routerLink]="['/wines', wine.id]"
-        class="group rounded-xl p-3 hover:scale-105 transition-t  ransform duration-300"
+        class="group rounded-xl p-3 hover:scale-105 transition-t ransform duration-300"
         [ngStyle]="{ 'background-color': wine.background }"
       >
         <img
@@ -22,19 +28,22 @@
           class="aspect-square w-full rounded-lg object-contain group-hover:opacity-75 xl:aspect-[7/8]"
         />
         <div class="w-full flex justify-center items-center mt-3">
-          <h3 class="text-4xl text-center"
-          [ngStyle]="{ 'color': wine.textColor }">
+          <h3
+            class="text-4xl text-center"
+            [ngStyle]="{ color: wine.textColor }"
+          >
             {{ wine.name }}
           </h3>
         </div>
         <!-- Informazioni aggiuntive opzionali -->
         <div class="text-center mt-2">
-          <p class="text-sm opacity-75"
-             [ngStyle]="{ 'color': wine.textColor }">
+          <p class="text-sm opacity-75" [ngStyle]="{ color: wine.textColor }">
             {{ wine.denomination }}
           </p>
-          <p class="text-xs opacity-60 mt-1"
-             [ngStyle]="{ 'color': wine.textColor }">
+          <p
+            class="text-xs opacity-60 mt-1"
+            [ngStyle]="{ color: wine.textColor }"
+          >
             {{ wine.grape }} - {{ wine.alcohol }}
           </p>
         </div>

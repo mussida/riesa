@@ -1,0 +1,370 @@
+<div class="min-h-screen mt-[112px] bg-primary">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <!-- Header -->
+    <header class="text-center mb-14">
+      <h1
+        class="text-4xl sm:text-5xl font-light text-[#3a352b] mb-3 tracking-tight"
+      >
+        Richiedi Preventivo
+      </h1>
+      <p
+        class="text-[#6b6456] text-base sm:text-lg max-w-lg mx-auto font-light"
+      >
+        Seleziona i tuoi vini preferiti e riceverai un preventivo personalizzato
+      </p>
+    </header>
+
+    <!-- Messaggi -->
+    @if (showSuccess) {
+    <div
+      class="mb-8 p-4 bg-[#e3ede3] rounded-lg border border-[#b9cbb9] text-[#3e5a3e] text-sm flex items-center gap-3"
+    >
+      <svg
+        class="w-5 h-5 text-[#5a8a5a]"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M5 13l4 4L19 7"
+        />
+      </svg>
+      <div>
+        <p class="font-medium">Richiesta inviata con successo</p>
+        <p class="text-xs text-[#5a7a5a]">Riceverai conferma via email</p>
+      </div>
+    </div>
+    } @if (errorMessage) {
+    <div
+      class="mb-8 p-4 bg-[#f8e4e4] rounded-lg border border-[#deb1b1] text-[#744c4c] text-sm flex justify-between items-start"
+    >
+      <div class="flex items-start gap-2">
+        <svg
+          class="w-5 h-5 mt-0.5 text-[#a85a5a]"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M6 18L18 6M6 6l12 12"
+          />
+        </svg>
+        <p>{{ errorMessage }}</p>
+      </div>
+      <button
+        (click)="clearError()"
+        class="text-[#a87a7a] hover:text-[#8b5a5a]"
+      >
+        ✕
+      </button>
+    </div>
+    }
+
+    <!-- Contenuto -->
+    <div class="grid lg:grid-cols-3 gap-10">
+      <!-- Lista vini -->
+      <div class="lg:col-span-2 space-y-5">
+        <div class="flex items-center justify-between mb-6">
+          <h2 class="text-2xl font-light text-[#3a352b]">I Nostri Vini</h2>
+          <span class="text-sm text-[#8b8472]">
+            {{ getTotalBottles() }} bottiglie
+          </span>
+        </div>
+
+        <div class="space-y-3">
+          @for (wine of wines; track wine.id) {
+          <div
+            class="group flex items-center justify-between rounded-lg p-4 border border-transparent hover:border-[#cdc7b2] transition-all duration-200"
+            [class.border-[#CDC7B2]]="wine.quantity > 0"
+            style="background-color: rgb(243, 236, 223)"
+            [class.bg-[#f9f8f4]]="wine.quantity > 0"
+          >
+            <div class="flex items-center gap-4">
+              <img
+                [src]="wine.imageUrl"
+                [alt]="wine.name"
+                class="w-22 h-22 rounded-full object-contain"
+              />
+              <div>
+                <h3 class="font-medium text-[#3a352b] text-base">
+                  {{ wine.name }}
+                </h3>
+                <p class="text-xs text-[#8b8472]">{{ wine.denomination }}</p>
+              </div>
+            </div>
+
+            <div class="flex items-center gap-2">
+              <button
+                type="button"
+                (click)="decrementQuantity(wine)"
+                [disabled]="wine.quantity === 0"
+                class="w-7 h-7 rounded-full border border-[#CDC7B2] flex items-center justify-center text-[#3a352b] hover:bg-[#CDC7B2] hover:text-white transition disabled:opacity-30 disabled:cursor-not-allowed"
+              >
+                −
+              </button>
+              <span class="w-8 text-center text-[#3a352b] text-sm">{{
+                wine.quantity
+              }}</span>
+              <button
+                type="button"
+                (click)="incrementQuantity(wine)"
+                [disabled]="
+                  wine.quantity >= MAX_BOTTLES_PER_WINE ||
+                  getTotalBottles() >= MAX_TOTAL_BOTTLES
+                "
+                class="w-7 h-7 rounded-full border border-[#CDC7B2] flex items-center justify-center text-[#3a352b] hover:bg-[#CDC7B2] hover:text-white transition disabled:opacity-30 disabled:cursor-not-allowed"
+              >
+                +
+              </button>
+            </div>
+          </div>
+          } @if (wines.length === 0 && !errorMessage) {
+          <div class="text-center py-16 text-[#8b8472] text-sm">
+            <div
+              class="w-10 h-10 mx-auto mb-4 border-4 border-[#e8e4d8] border-t-[#CDC7B2] rounded-full animate-spin"
+            ></div>
+            Caricamento vini...
+          </div>
+          }
+        </div>
+      </div>
+
+      <!-- Form -->
+      <div class="lg:col-span-1">
+        <div
+          class="rounded-xl p-6 shadow-sm border border-[#e8e4d8]"
+          style="background-color: rgb(243, 236, 223)"
+        >
+          <h2 class="text-xl font-light text-[#3a352b] mb-6">
+            Dati di contatto
+          </h2>
+
+          <form
+            (ngSubmit)="submitQuote()"
+            #quoteForm="ngForm"
+            class="space-y-4"
+          >
+            <!-- Tipo Cliente -->
+            <div>
+              <label class="block text-sm text-[#3a352b] mb-2"
+                >Tipo cliente</label
+              >
+              <div class="grid grid-cols-2 gap-2">
+                @for (type of ['private', 'business']; track $index) {
+                <label class="cursor-pointer">
+                  <input
+                    type="radio"
+                    name="customerType"
+                    [value]="type"
+                    [(ngModel)]="customerType"
+                    class="sr-only peer"
+                  />
+                  <div
+                    class="p-3 text-center rounded-lg border border-[#e8e4d8] peer-checked:border-[#CDC7B2] peer-checked:bg-[#f5f3ed] hover:border-[#CDC7B2] transition"
+                  >
+                    <span class="block text-sm text-[#3a352b] capitalize">
+                      {{ type === "private" ? "Privato" : "Azienda" }}
+                    </span>
+                  </div>
+                </label>
+                }
+              </div>
+            </div>
+
+            <!-- P.IVA (solo per aziende) -->
+            @if (customerType === 'business') {
+            <div>
+              <label class="block text-sm text-[#3a352b] mb-1"
+                >Partita IVA</label
+              >
+              <input
+                type="text"
+                name="vatNumber"
+                [(ngModel)]="vatNumber"
+                required
+                pattern="\d{11}"
+                maxlength="11"
+                placeholder="12345678901"
+                class="w-full px-3 py-2 bg-[#f9f8f4] border border-[#e8e4d8] rounded-md focus:ring-1 focus:ring-[#CDC7B2] text-sm text-[#3a352b] outline-none"
+              />
+            </div>
+            }
+
+            <!-- Email -->
+            <div>
+              <label class="block text-sm text-[#3a352b] mb-1">Email *</label>
+              <input
+                type="email"
+                name="email"
+                [(ngModel)]="email"
+                required
+                placeholder="tua@email.com"
+                class="w-full px-3 py-2 bg-[#f9f8f4] border border-[#e8e4d8] rounded-md focus:ring-1 focus:ring-[#CDC7B2] text-sm text-[#3a352b] outline-none"
+              />
+            </div>
+
+            <!-- Sezione Indirizzo -->
+            <div class="pt-3 border-t border-[#e8e4d8]">
+              <h3 class="text-sm font-medium text-[#3a352b] mb-3">
+                Indirizzo di spedizione
+              </h3>
+
+              <!-- Indirizzo -->
+              <div class="mb-3">
+                <label class="block text-sm text-[#3a352b] mb-1"
+                  >Indirizzo *</label
+                >
+                <input
+                  type="text"
+                  name="address"
+                  [(ngModel)]="address"
+                  required
+                  placeholder="Via Roma, 123"
+                  class="w-full px-3 py-2 bg-[#f9f8f4] border border-[#e8e4d8] rounded-md focus:ring-1 focus:ring-[#CDC7B2] text-sm text-[#3a352b] outline-none"
+                />
+              </div>
+
+              <!-- Città e Provincia -->
+              <div class="grid grid-cols-2 gap-2 mb-3">
+                <div>
+                  <label class="block text-sm text-[#3a352b] mb-1"
+                    >Città *</label
+                  >
+                  <input
+                    type="text"
+                    name="city"
+                    [(ngModel)]="city"
+                    required
+                    placeholder="Bologna"
+                    class="w-full px-3 py-2 bg-[#f9f8f4] border border-[#e8e4d8] rounded-md focus:ring-1 focus:ring-[#CDC7B2] text-sm text-[#3a352b] outline-none"
+                  />
+                </div>
+                <div>
+                  <label class="block text-sm text-[#3a352b] mb-1"
+                    >Prov. *</label
+                  >
+                  <input
+                    type="text"
+                    name="province"
+                    [(ngModel)]="province"
+                    required
+                    maxlength="2"
+                    placeholder="BO"
+                    (input)="province = province.toUpperCase()"
+                    class="w-full px-3 py-2 bg-[#f9f8f4] border border-[#e8e4d8] rounded-md focus:ring-1 focus:ring-[#CDC7B2] text-sm text-[#3a352b] outline-none uppercase"
+                  />
+                </div>
+              </div>
+
+              <!-- CAP e Paese -->
+              <div class="grid grid-cols-2 gap-2">
+                <div>
+                  <label class="block text-sm text-[#3a352b] mb-1">CAP *</label>
+                  <input
+                    type="text"
+                    name="postalCode"
+                    [(ngModel)]="postalCode"
+                    required
+                    maxlength="5"
+                    placeholder="40100"
+                    class="w-full px-3 py-2 bg-[#f9f8f4] border border-[#e8e4d8] rounded-md focus:ring-1 focus:ring-[#CDC7B2] text-sm text-[#3a352b] outline-none"
+                  />
+                </div>
+                <div>
+                  <label class="block text-sm text-[#3a352b] mb-1"
+                    >Paese *</label
+                  >
+                  <input
+                    type="text"
+                    name="country"
+                    [(ngModel)]="country"
+                    required
+                    placeholder="Italia"
+                    class="w-full px-3 py-2 bg-[#f9f8f4] border border-[#e8e4d8] rounded-md focus:ring-1 focus:ring-[#CDC7B2] text-sm text-[#3a352b] outline-none"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <!-- Note -->
+            <div>
+              <label class="block text-sm text-[#3a352b] mb-1"
+                >Note <span class="text-[#a39a88]">(opzionale)</span></label
+              >
+              <textarea
+                name="notes"
+                [(ngModel)]="notes"
+                rows="3"
+                maxlength="1000"
+                placeholder="Richieste particolari..."
+                class="w-full px-3 py-2 bg-[#f9f8f4] border border-[#e8e4d8] rounded-md text-sm focus:ring-1 focus:ring-[#CDC7B2] resize-none text-[#3a352b] outline-none"
+              ></textarea>
+              <p class="text-xs text-right text-[#a39a88] mt-1">
+                {{ notes.length }} / 1000
+              </p>
+            </div>
+
+            <!-- Riepilogo -->
+            @if (getSelectedWines().length > 0) {
+            <div
+              class="p-3 bg-[#f9f8f4] rounded-md border border-[#e8e4d8] text-sm space-y-2"
+            >
+              <div
+                class="flex justify-between border-b border-[#e8e4d8] pb-2 mb-2"
+              >
+                <span class="text-[#6b6456]">Totale bottiglie</span>
+                <span class="font-medium text-[#3a352b]">{{
+                  getTotalBottles()
+                }}</span>
+              </div>
+              @for (wine of getSelectedWines(); track wine.id) {
+              <div class="flex justify-between text-[#6b6456]">
+                <span>{{ wine.name }}</span>
+                <span>× {{ wine.quantity }}</span>
+              </div>
+              }
+            </div>
+            }
+
+            <!-- Bottone Submit -->
+            <button
+              type="submit"
+              [disabled]="!isFormValid() || isSubmitting"
+              class="w-full py-2.5 bg-[#CDC7B2] text-white rounded-md font-medium hover:bg-[#bdb7a2] disabled:opacity-50 disabled:cursor-not-allowed transition flex items-center justify-center gap-2 text-sm"
+            >
+              @if (!isSubmitting) {
+              <span>Invia richiesta</span>
+              } @else {
+              <svg class="animate-spin h-4 w-4" viewBox="0 0 24 24">
+                <circle
+                  class="opacity-25"
+                  cx="12"
+                  cy="12"
+                  r="10"
+                  stroke="currentColor"
+                  stroke-width="4"
+                  fill="none"
+                />
+                <path
+                  class="opacity-75"
+                  fill="currentColor"
+                  d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"
+                />
+              </svg>
+              <span>Invio...</span>
+              }
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer>

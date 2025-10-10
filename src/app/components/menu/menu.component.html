@@ -6,7 +6,7 @@
   }"
 >
 
-  <ul class="text-6xl md:text-7xl space-y-6">
+  <ul class="text-5xl md:text-7xl space-y-6">
     <li><a href="#" class="transition">HOME</a></li>
     <li>
       <a
@@ -39,6 +39,17 @@
         (click)="toggleMenu()"
         [routerLink]="['/contatti']"
         >CONTATTI</a
+      >
+    </li> 
+    <li>
+      <a
+        href="#"
+        class="transition"
+        routerLinkActive
+        #rlaContacts="routerLinkActive"
+        (click)="toggleMenu()"
+        [routerLink]="['/preventivo']"
+        >PREVENTIVO</a
       >
     </li> 
     <!-- <li><a href="#" class="transition">CHI SIAMO</a></li>

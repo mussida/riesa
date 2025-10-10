@@ -15,9 +15,21 @@
       <div>{{ wine.grape }}</div>
       <div>{{ wine.denomination }}</div>
     </div>
-    <h1 class="mt-6 text-pretty text-4xl uppercase tracking-tight sm:text-5xl">
-      {{ wine.name }}
-    </h1>
+    <div class="flex items-center justify-between mt-6">
+      <h1 class="text-pretty text-4xl uppercase tracking-tight sm:text-5xl">
+        {{ wine.name }}
+      </h1>
+
+      <div class="group relative cursor-pointer text-lg font-medium">
+        <div class="flex items-center justify-center gap-2">
+          <div [routerLink]="'/preventivo'">Richiedi preventivo</div>
+        </div>
+        <div
+          class="absolute left-0 bottom-0 h-[2px] w-0 bg-[#800020] transition-all duration-300 group-hover:w-full"
+        ></div>
+      </div>
+    </div>
+
     <div class="mt-6 text-lg leading-relaxed">
       <p class="font-bold text-3xl">Vinificazione</p>
       {{ wine.vinification }}
@@ -46,7 +58,10 @@
         <div class="space-y-2">
           <div><strong>Affinamento:</strong> {{ wine.aging }}</div>
           <div><strong>Alcol:</strong> {{ wine.alcohol }}</div>
-          <div><strong>Potenzialità di invecchiamento:</strong> {{ wine.agingPotential }}</div>
+          <div>
+            <strong>Potenzialità di invecchiamento:</strong>
+            {{ wine.agingPotential }}
+          </div>
           <div>
             <strong>Temperatura di servizio:</strong>
             {{ wine.servingTemperature }}

@@ -5,7 +5,7 @@
       <h1
         class="text-4xl sm:text-5xl font-light text-[#3a352b] mb-3 tracking-tight"
       >
-        Richiedi Preventivo
+        SHOP
       </h1>
       <p
         class="text-[#6b6456] text-base sm:text-lg max-w-lg mx-auto font-light"
@@ -87,9 +87,11 @@
           >
             <div class="flex items-center gap-4">
               <img
-                [src]="wine.imageUrl"
+                [ngSrc]="wine.imageUrl"
                 [alt]="wine.name"
-                class="w-22 h-22 rounded-full object-contain"
+                width="59"
+                height="88"
+                class="rounded-full object-contain"
               />
               <div>
                 <h3 class="font-medium text-[#3a352b] text-base">

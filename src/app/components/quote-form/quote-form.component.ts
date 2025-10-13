@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { FooterComponent } from '../../components/footer/footer.component';
@@ -32,9 +32,9 @@ interface FormData {
 @Component({
   selector: 'app-quote-form',
   standalone: true,
-  imports: [CommonModule, FormsModule, FooterComponent],
+  imports: [CommonModule, FormsModule, FooterComponent, NgOptimizedImage],
   templateUrl: './quote-form.component.html',
-  styleUrl: './quote-form.component.css'
+  styleUrl: './quote-form.component.css',
 })
 export class QuoteFormComponent implements OnInit, OnDestroy {
   wines: WineSelection[] = [];
@@ -42,23 +42,23 @@ export class QuoteFormComponent implements OnInit, OnDestroy {
   email: string = '';
   notes: string = '';
   vatNumber: string = '';
-  
+
   // Nuovi campi indirizzo
   address: string = '';
   city: string = '';
   province: string = '';
   postalCode: string = '';
   country: string = 'Italia';
-  
+
   isSubmitting: boolean = false;
   showSuccess: boolean = false;
   errorMessage: string = '';
-  
+
   // Configurazione limiti
   readonly MIN_BOTTLES_PER_WINE = 1;
   readonly MAX_BOTTLES_PER_WINE = 999;
   readonly MAX_TOTAL_BOTTLES = 1000;
-  
+
   private readonly STORAGE_KEY = 'quote_form_draft';
   private autoSaveInterval: any;
 
@@ -81,27 +81,36 @@ export class QuoteFormComponent implements OnInit, OnDestroy {
   loadWines(): void {
     this.winesService.configApiListWines().subscribe({
       next: (wines) => {
-        // Se abbiamo una bozza, mantieni le quantità
         const draft = this.getDraft();
-        
-        this.wines = wines.map(wine => {
-          const draftWine = draft?.wines?.find(w => w.id === wine.id);
+
+        this.wines = wines.map((wine) => {
+          const draftWine = draft?.wines?.find((w) => w.id === wine.id);
+
+          // Estrai il nome del file in modo sicuro
+          const fileName = wine.image_url?.split('/').pop() || '';
+          const useThumb = /^[1-6]\.png$/.test(fileName);
+
+          // Usa il thumb per le bottiglie (1-6), originale per le altre
+          const imagePath = useThumb
+            ? wine.image_url.replace('/images/', '/images/thumbs/')
+            : wine.image_url;
+
           return {
             id: wine.id,
             name: wine.name,
             denomination: wine.denomination || '',
             grape: wine.grape || '',
-            imageUrl: wine.image_url,
+            imageUrl: imagePath,
             background: wine.background,
             textColor: wine.text_color || '#000',
-            quantity: draftWine?.quantity || 0
+            quantity: draftWine?.quantity || 0,
           };
         });
       },
       error: (error) => {
         console.error('Errore caricamento vini:', error);
         this.errorMessage = 'Errore nel caricamento dei vini';
-      }
+      },
     });
   }
 
@@ -111,7 +120,9 @@ export class QuoteFormComponent implements OnInit, OnDestroy {
       if (totalAfterIncrement <= this.MAX_TOTAL_BOTTLES) {
         wine.quantity++;
       } else {
-        this.showTemporaryError(`Limite massimo di ${this.MAX_TOTAL_BOTTLES} bottiglie raggiunto`);
+        this.showTemporaryError(
+          `Limite massimo di ${this.MAX_TOTAL_BOTTLES} bottiglie raggiunto`
+        );
       }
     }
   }
@@ -124,21 +135,29 @@ export class QuoteFormComponent implements OnInit, OnDestroy {
 
   setQuantity(wine: WineSelection, value: string): void {
     const numValue = parseInt(value) || 0;
-    const clampedValue = Math.max(0, Math.min(numValue, this.MAX_BOTTLES_PER_WINE));
-    
+    const clampedValue = Math.max(
+      0,
+      Math.min(numValue, this.MAX_BOTTLES_PER_WINE)
+    );
+
     const currentTotal = this.getTotalBottles();
     const difference = clampedValue - wine.quantity;
-    
+
     if (currentTotal + difference <= this.MAX_TOTAL_BOTTLES) {
       wine.quantity = clampedValue;
     } else {
-      wine.quantity = Math.max(0, this.MAX_TOTAL_BOTTLES - (currentTotal - wine.quantity));
-      this.showTemporaryError(`Limite massimo di ${this.MAX_TOTAL_BOTTLES} bottiglie raggiunto`);
+      wine.quantity = Math.max(
+        0,
+        this.MAX_TOTAL_BOTTLES - (currentTotal - wine.quantity)
+      );
+      this.showTemporaryError(
+        `Limite massimo di ${this.MAX_TOTAL_BOTTLES} bottiglie raggiunto`
+      );
     }
   }
 
   getSelectedWines(): WineSelection[] {
-    return this.wines.filter(w => w.quantity > 0);
+    return this.wines.filter((w) => w.quantity > 0);
   }
 
   getTotalBottles(): number {
@@ -147,14 +166,24 @@ export class QuoteFormComponent implements OnInit, OnDestroy {
 
   isFormValid(): boolean {
     const hasWines = this.getSelectedWines().length > 0;
-    const hasEmail = this.email.trim().length > 0 && this.isValidEmail(this.email);
-    const hasValidVat = this.customerType === 'private' || this.isValidVatNumber(this.vatNumber);
+    const hasEmail =
+      this.email.trim().length > 0 && this.isValidEmail(this.email);
+    const hasValidVat =
+      this.customerType === 'private' || this.isValidVatNumber(this.vatNumber);
     const hasAddress = this.address.trim().length > 0;
     const hasCity = this.city.trim().length > 0;
     const hasProvince = this.province.trim().length === 2;
     const hasPostalCode = this.postalCode.trim().length > 0;
-    
-    return hasWines && hasEmail && hasValidVat && hasAddress && hasCity && hasProvince && hasPostalCode;
+
+    return (
+      hasWines &&
+      hasEmail &&
+      hasValidVat &&
+      hasAddress &&
+      hasCity &&
+      hasProvince &&
+      hasPostalCode
+    );
   }
 
   isValidEmail(email: string): boolean {
@@ -190,24 +219,24 @@ export class QuoteFormComponent implements OnInit, OnDestroy {
       province: this.province.trim().toUpperCase(),
       postal_code: this.postalCode.trim(),
       country: this.country.trim(),
-      items: this.getSelectedWines().map(wine => ({
+      items: this.getSelectedWines().map((wine) => ({
         wine_id: wine.id,
-        quantity: wine.quantity
-      }))
+        quantity: wine.quantity,
+      })),
     };
 
     this.quoteService.configApiCreateQuoteRequest(payload).subscribe({
       next: (result) => {
         if (result.success) {
           this.showSuccess = true;
-          this.clearDraft(); // Rimuovi la bozza salvata
-          
-          // Reindirizza dopo 3 secondi
+          this.clearDraft();
+
           setTimeout(() => {
             this.router.navigate(['/wines']);
-          }, 3000);
+          }, 2000);
         } else {
-          this.errorMessage = result.message || 'Errore nell\'invio del preventivo';
+          this.errorMessage =
+            result.message || "Errore nell'invio del preventivo";
         }
         this.isSubmitting = false;
       },
@@ -215,7 +244,7 @@ export class QuoteFormComponent implements OnInit, OnDestroy {
         console.error('Errore:', error);
         this.errorMessage = 'Si è verificato un errore. Riprova più tardi.';
         this.isSubmitting = false;
-      }
+      },
     });
   }
 
@@ -228,7 +257,7 @@ export class QuoteFormComponent implements OnInit, OnDestroy {
   }
 
   resetForm(): void {
-    this.wines.forEach(wine => wine.quantity = 0);
+    this.wines.forEach((wine) => (wine.quantity = 0));
     this.email = '';
     this.notes = '';
     this.vatNumber = '';
@@ -260,9 +289,14 @@ export class QuoteFormComponent implements OnInit, OnDestroy {
 
   private saveDraft(): void {
     // Salva solo se ci sono dati
-    if (this.getTotalBottles() > 0 || this.email || this.notes || this.address) {
+    if (
+      this.getTotalBottles() > 0 ||
+      this.email ||
+      this.notes ||
+      this.address
+    ) {
       const draft: FormData = {
-        wines: this.wines.filter(w => w.quantity > 0),
+        wines: this.wines.filter((w) => w.quantity > 0),
         customerType: this.customerType,
         email: this.email,
         notes: this.notes,
@@ -271,9 +305,9 @@ export class QuoteFormComponent implements OnInit, OnDestroy {
         city: this.city,
         province: this.province,
         postalCode: this.postalCode,
-        country: this.country
+        country: this.country,
       };
-      
+
       try {
         localStorage.setItem(this.STORAGE_KEY, JSON.stringify(draft));
       } catch (e) {

@@ -58,30 +58,54 @@ export class WineDetailComponent implements OnInit {
       background: '#2A413B',
       textColor: '#E5D5A3',
     },
-    // {
-    //   id: 2,
-    //   name: 'Vsin',
-    //   denomination: 'Monferrato Nebbiolo DOC',
-    //   grape: '100% Nebbiolo',
-    //   altitude: '270 m.s.l.m.m.',
-    //   soilComposition: '', // Non specificata nel PDF
-    //   cultivationMethod: 'Guyot',
-    //   harvest:
-    //     "La vendemmia si svolge solitamente a settembre, a seconda dell'annata, quando si raggiungono le migliori condizioni di maturazione.",
-    //   vinification:
-    //     'La raccolta delle uve avviene manualmente, esclusivamente nelle prime ore della giornata in cui le temperature dei grappoli è più bassa. Le uve vengono raccolte in cassette, portate in cantina. Prima della pigia deraspatrice, le uve vengono selezionate e lavate. La macerazione sulle bucce dura circa 12 giorni, due rimontaggi al giorno per tenere sempre bagnato il cappello.',
-    //   aging: 'Vasche di acciaio',
-    //   description:
-    //     "Il colore è un rosso rubino intenso. Bouquet aromatico con sentori di frutti rossi. In bocca è piacevole, elegante con sentori di cacao e liquirizia, armonico, dal tannino delicato e dall'ottimo finale lungo.",
-    //   alcohol: '13.5%vol',
-    //   servingTemperature: '18°C',
-    //   agingPotential: '8 – 10 anni',
-    //   format: '0.75 l',
-    //   closure: 'Tappo Nomacorc Select Green ottenuto da materie prime sostenibili e rinnovabili derivate dalla canna da zucchero.',
-    //   imageUrl: 'assets/images/try.png',
-    //   background: '#2A413B',
-    //   textColor: '#E5D5A3',
-    // },
+        {
+      id: 4,
+      name: 'Gamèl',
+      denomination: 'Brut – Blanc de Blancs',
+      grape: '50% Cortese 50% Pinot Bianco',
+      altitude: '270 m.s.l.m.m.',
+      soilComposition: '', 
+      cultivationMethod: 'Guyot',
+      harvest:
+        "La vendemmia si svolge solitamente a metà agosto a seconda dell'annata, quando si raggiunge il migliore rapporto tra maturazione ed acidità.",
+      vinification:
+        'La raccolta delle uve avviene manualmente, esclusivamente nelle prime ore della giornata in cui le temperature dei grappoli è più bassa. Le uve vengono raccolte in cassette, portate in cantina. Prima della pigia deraspatrice, le uve vengono selezionate e lavate. Vinificazione in autoclave a temperatura controllata tra i 12° e 14°C.',
+      aging: 'In autoclave sui propri lieviti',
+      description:
+        'Perlage elegante con una piacevole corona di bollicine. Colore paglierino. Bouquet netto e profumato. In bocca è fine, delicato e persistente.',
+      alcohol: '12.5%vol',
+      servingTemperature: '8°C',
+      agingPotential: '2 – 3 anni',
+      format: '0.75 l',
+      closure: 'Tappo sughero',
+      imageUrl: 'assets/images/1.png',
+      background: '#303334',
+      textColor: '#E5D5A3',
+    },
+    {
+      id: 2,
+      name: 'Vsin',
+      denomination: 'Monferrato Nebbiolo DOC',
+      grape: '100% Nebbiolo',
+      altitude: '270 m.s.l.m.m.',
+      soilComposition: '', // Non specificata nel PDF
+      cultivationMethod: 'Guyot',
+      harvest:
+        "La vendemmia si svolge solitamente a settembre, a seconda dell'annata, quando si raggiungono le migliori condizioni di maturazione.",
+      vinification:
+        'La raccolta delle uve avviene manualmente, esclusivamente nelle prime ore della giornata in cui le temperature dei grappoli è più bassa. Le uve vengono raccolte in cassette, portate in cantina. Prima della pigia deraspatrice, le uve vengono selezionate e lavate. La macerazione sulle bucce dura circa 12 giorni, due rimontaggi al giorno per tenere sempre bagnato il cappello.',
+      aging: 'Vasche di acciaio',
+      description:
+        "Il colore è un rosso rubino intenso. Bouquet aromatico con sentori di frutti rossi. In bocca è piacevole, elegante con sentori di cacao e liquirizia, armonico, dal tannino delicato e dall'ottimo finale lungo.",
+      alcohol: '13.5%vol',
+      servingTemperature: '18°C',
+      agingPotential: '8 – 10 anni',
+      format: '0.75 l',
+      closure: 'Tappo Nomacorc Select Green ottenuto da materie prime sostenibili e rinnovabili derivate dalla canna da zucchero.',
+      imageUrl: 'assets/images/7.png',
+      background: '#2A413B',
+      textColor: '#E5D5A3',
+    },
     {
       id: 3,
       name: 'Erni',
@@ -112,7 +136,7 @@ export class WineDetailComponent implements OnInit {
       denomination: 'Brut – Blanc de Blancs',
       grape: '50% Cortese 50% Pinot Bianco',
       altitude: '270 m.s.l.m.m.',
-      soilComposition: '', // Non specificata nel PDF
+      soilComposition: '', 
       cultivationMethod: 'Guyot',
       harvest:
         "La vendemmia si svolge solitamente a metà agosto a seconda dell'annata, quando si raggiunge il migliore rapporto tra maturazione ed acidità.",

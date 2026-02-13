@@ -71,54 +71,6 @@ export class WinesComponent {
       background: '#2A413B',
       textColor: '#E5D5A3',
     },
-    // {
-    //   id: 2,
-    //   name: 'Vsin',
-    //   denomination: 'Monferrato Nebbiolo DOC',
-    //   grape: '100% Nebbiolo',
-    //   altitude: '270 m.s.l.m.m.',
-    //   soilComposition: '', // Non specificata nel PDF
-    //   cultivationMethod: 'Guyot',
-    //   harvest:
-    //     "La vendemmia si svolge solitamente a settembre, a seconda dell'annata, quando si raggiungono le migliori condizioni di maturazione.",
-    //   vinification:
-    //     'La raccolta delle uve avviene manualmente, esclusivamente nelle prime ore della giornata in cui le temperature dei grappoli è più bassa. Le uve vengono raccolte in cassette, portate in cantina. Prima della pigia deraspatrice, le uve vengono selezionate e lavate. La macerazione sulle bucce dura circa 12 giorni, due rimontaggi al giorno per tenere sempre bagnato il cappello.',
-    //   aging: 'Vasche di acciaio',
-    //   description:
-    //     "Il colore è un rosso rubino intenso. Bouquet aromatico con sentori di frutti rossi. In bocca è piacevole, elegante con sentori di cacao e liquirizia, armonico, dal tannino delicato e dall'ottimo finale lungo.",
-    //   alcohol: '13.5%vol',
-    //   servingTemperature: '18°C',
-    //   agingPotential: '8 – 10 anni',
-    //   format: '0.75 l',
-    //   closure: 'Tappo sughero',
-    //   imageUrl: 'assets/images/try.png',
-    //   background: '#2A413B',
-    //   textColor: '#E5D5A3',
-    // },
-    {
-      id: 3,
-      name: 'Erni',
-      denomination: 'Piemonte Cortese DOC',
-      grape: '100% Cortese',
-      altitude: '270 m.s.l.m.m.',
-      soilComposition: '', // Non specificata nel PDF
-      cultivationMethod: 'Guyot',
-      harvest:
-        "La vendemmia si svolge solitamente a fine agosto a seconda dell'annata, quando si raggiungono le migliori condizioni di maturazione.",
-      vinification:
-        'La raccolta delle uve avviene manualmente, esclusivamente nelle prime ore della giornata in cui le temperature dei grappoli è più bassa. Le uve vengono raccolte in cassette, portate in cantina. Prima della pigia deraspatrice, le uve vengono selezionate e lavate. La macerazione sulle bucce dura circa 2 giorni. Fermentazione a temperatura controllata tra i 12° e 14°C.',
-      aging: 'Vasche di acciaio',
-      description:
-        'Il colore è giallo paglierino con riflessi dorati. Al naso il vino denota tutta la sua freschezza, si sentono note floreali e agrumate. In bocca è elegante, ben equilibrato e leggermente minerale.',
-      alcohol: '12.5%vol',
-      servingTemperature: '10°C',
-      agingPotential: '2 – 3 anni',
-      format: '0.75 l',
-      closure: 'Tappo sughero',
-      imageUrl: 'assets/images/6.png',
-      background: '#D4C4A8',
-      textColor: '#19120F',
-    },
     {
       id: 4,
       name: 'Gamèl',
@@ -143,6 +95,55 @@ export class WinesComponent {
       background: '#303334',
       textColor: '#E5D5A3',
     },
+    {
+      id: 2,
+      name: 'Vsin',
+      denomination: 'Monferrato Nebbiolo D.O.C.',
+      grape: '100% Nebbiolo',
+      altitude: '270 m.s.l.m.m.',
+      soilComposition: '',
+      cultivationMethod: 'Guyot',
+      harvest:
+        "La vendemmia si svolge solitamente a fine settembre/inizio ottobre, a seconda dell'annata, quando si raggiungono le migliori condizioni di maturazione.",
+      vinification:
+        'La raccolta delle uve avviene manualmente, esclusivamente nelle prime ore della giornata in cui le temperature dei grappoli è più bassa. Le uve vengono raccolte in cassette, portate in cantina. Prima della pigia diraspatrice, le uve vengono selezionate e lavate. La macerazione sulle bucce dura circa 18 giorni, due rimontaggi al giorno per tenere sempre bagnato il cappello.',
+      aging: 'Minimo 12 mesi in vasche d\'acciaio seguito da ulteriore affinamento in bottiglia prima della messa in commercio',
+      description:
+        'Colore rosso rubino. Il bouquet è fresco, ricco di sentori fruttati e floreali, e forti note speziate calde. In bocca è elegante, caratterizzato dalla sua completezza, da un buon equilibrio e da tannini morbidi e setosi.',
+      alcohol: '13.5%vol',
+      servingTemperature: '18°C',
+      agingPotential: '3 – 5 anni',
+      format: '0.75 l',
+      closure: 'Tappo Nomacorc Select Green ottenuto da materie prime sostenibili e rinnovabili derivate dalla canna da zucchero.',
+      imageUrl: 'assets/images/7.png',
+      background: '#2A413B',
+      textColor: '#E5D5A3',
+    },
+    {
+      id: 3,
+      name: 'Erni',
+      denomination: 'Piemonte Cortese DOC',
+      grape: '100% Cortese',
+      altitude: '270 m.s.l.m.m.',
+      soilComposition: '', // Non specificata nel PDF
+      cultivationMethod: 'Guyot',
+      harvest:
+        "La vendemmia si svolge solitamente a fine agosto a seconda dell'annata, quando si raggiungono le migliori condizioni di maturazione.",
+      vinification:
+        'La raccolta delle uve avviene manualmente, esclusivamente nelle prime ore della giornata in cui le temperature dei grappoli è più bassa. Le uve vengono raccolte in cassette, portate in cantina. Prima della pigia deraspatrice, le uve vengono selezionate e lavate. La macerazione sulle bucce dura circa 2 giorni. Fermentazione a temperatura controllata tra i 12° e 14°C.',
+      aging: 'Vasche di acciaio',
+      description:
+        'Il colore è giallo paglierino con riflessi dorati. Al naso il vino denota tutta la sua freschezza, si sentono note floreali e agrumate. In bocca è elegante, ben equilibrato e leggermente minerale.',
+      alcohol: '12.5%vol',
+      servingTemperature: '10°C',
+      agingPotential: '2 – 3 anni',
+      format: '0.75 l',
+      closure: 'Tappo sughero',
+      imageUrl: 'assets/images/6.png',
+      background: '#D4C4A8',
+      textColor: '#19120F',
+    },
+
     {
       id: 5,
       name: 'Salas',

@@ -22,6 +22,8 @@ export interface Wine {
   imageUrl: string;
   background: string;
   textColor?: string;
+  shopSlug?: string;
+
 }
 
 @Component({
@@ -57,14 +59,15 @@ export class WineDetailComponent implements OnInit {
       imageUrl: 'assets/images/4.png',
       background: '#2A413B',
       textColor: '#E5D5A3',
+      shopSlug: 'matune',
     },
-        {
+    {
       id: 4,
       name: 'Gamèl',
       denomination: 'Brut – Blanc de Blancs',
       grape: '50% Cortese 50% Pinot Bianco',
       altitude: '270 m.s.l.m.m.',
-      soilComposition: '', 
+      soilComposition: '',
       cultivationMethod: 'Guyot',
       harvest:
         "La vendemmia si svolge solitamente a metà agosto a seconda dell'annata, quando si raggiunge il migliore rapporto tra maturazione ed acidità.",
@@ -81,6 +84,7 @@ export class WineDetailComponent implements OnInit {
       imageUrl: 'assets/images/1.png',
       background: '#303334',
       textColor: '#E5D5A3',
+      shopSlug: 'gamel',
     },
     {
       id: 2,
@@ -105,6 +109,7 @@ export class WineDetailComponent implements OnInit {
       imageUrl: 'assets/images/7.png',
       background: '#2A413B',
       textColor: '#E5D5A3',
+      shopSlug: 'vsin',
     },
     {
       id: 3,
@@ -129,31 +134,33 @@ export class WineDetailComponent implements OnInit {
       imageUrl: 'assets/images/6.png',
       background: '#D4C4A8',
       textColor: '#19120F',
+      shopSlug: 'erni',
     },
-    {
-      id: 4,
-      name: 'Gamèl',
-      denomination: 'Brut – Blanc de Blancs',
-      grape: '50% Cortese 50% Pinot Bianco',
-      altitude: '270 m.s.l.m.m.',
-      soilComposition: '', 
-      cultivationMethod: 'Guyot',
-      harvest:
-        "La vendemmia si svolge solitamente a metà agosto a seconda dell'annata, quando si raggiunge il migliore rapporto tra maturazione ed acidità.",
-      vinification:
-        'La raccolta delle uve avviene manualmente, esclusivamente nelle prime ore della giornata in cui le temperature dei grappoli è più bassa. Le uve vengono raccolte in cassette, portate in cantina. Prima della pigia deraspatrice, le uve vengono selezionate e lavate. Vinificazione in autoclave a temperatura controllata tra i 12° e 14°C.',
-      aging: 'In autoclave sui propri lieviti',
-      description:
-        'Perlage elegante con una piacevole corona di bollicine. Colore paglierino. Bouquet netto e profumato. In bocca è fine, delicato e persistente.',
-      alcohol: '12.5%vol',
-      servingTemperature: '8°C',
-      agingPotential: '2 – 3 anni',
-      format: '0.75 l',
-      closure: 'Tappo sughero',
-      imageUrl: 'assets/images/1.png',
-      background: '#303334',
-      textColor: '#E5D5A3',
-    },
+    // {
+    //   id: 4,
+    //   name: 'Gamèl',
+    //   denomination: 'Brut – Blanc de Blancs',
+    //   grape: '50% Cortese 50% Pinot Bianco',
+    //   altitude: '270 m.s.l.m.m.',
+    //   soilComposition: '',
+    //   cultivationMethod: 'Guyot',
+    //   harvest:
+    //     "La vendemmia si svolge solitamente a metà agosto a seconda dell'annata, quando si raggiunge il migliore rapporto tra maturazione ed acidità.",
+    //   vinification:
+    //     'La raccolta delle uve avviene manualmente, esclusivamente nelle prime ore della giornata in cui le temperature dei grappoli è più bassa. Le uve vengono raccolte in cassette, portate in cantina. Prima della pigia deraspatrice, le uve vengono selezionate e lavate. Vinificazione in autoclave a temperatura controllata tra i 12° e 14°C.',
+    //   aging: 'In autoclave sui propri lieviti',
+    //   description:
+    //     'Perlage elegante con una piacevole corona di bollicine. Colore paglierino. Bouquet netto e profumato. In bocca è fine, delicato e persistente.',
+    //   alcohol: '12.5%vol',
+    //   servingTemperature: '8°C',
+    //   agingPotential: '2 – 3 anni',
+    //   format: '0.75 l',
+    //   closure: 'Tappo sughero',
+    //   imageUrl: 'assets/images/1.png',
+    //   background: '#303334',
+    //   textColor: '#E5D5A3',
+    //   shopSlug: 'gamel',
+    // },
     {
       id: 5,
       name: 'Salas',
@@ -177,6 +184,7 @@ export class WineDetailComponent implements OnInit {
       imageUrl: 'assets/images/5.png',
       background: '#B896A5',
       textColor: '#692D46',
+      shopSlug: 'salas',
     },
     {
       id: 6,
@@ -201,6 +209,7 @@ export class WineDetailComponent implements OnInit {
       imageUrl: 'assets/images/3.png',
       background: '#2A413B',
       textColor: '#E5D5A3',
+      shopSlug: 'luis',
     },
     {
       id: 7,
@@ -225,14 +234,15 @@ export class WineDetailComponent implements OnInit {
       imageUrl: 'assets/images/2.png',
       background: '#A33A4A',
       textColor: '#E5D5A3',
+      shopSlug: 'naima',
     },
   ];
 
-  constructor(private route: ActivatedRoute) {}
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.route.params.subscribe((params) => {
-      const wineId = +params['id']; 
+      const wineId = +params['id'];
       this.wine = this.wines.find((w) => w.id === wineId);
     });
   }
